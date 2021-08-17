@@ -15,7 +15,7 @@ color: red;
 <body>
 
 <form action="./Login" method="post">
-	<label for="pseudo" class="labelPseudo">Pseudo :</label>
+	<label for="pseudo" class="labelPseudo">Pseudo ou E-mail :</label>
 	<input type="text" name="pseudo" class="inputPseudo"/>
 	<br />
 	<label for="motdepasse" class="labelmdp">Mot de passe : </label>

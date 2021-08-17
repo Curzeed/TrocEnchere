@@ -10,7 +10,7 @@ import fr.eni.jee.enchere.bo.User;
 import fr.eni.jee.enchere.dal.ConnectionProvider;
 
 public class JDBCImplObjectDAO {
-	private static String SQL_VERIFLOGIN = "SELECT * FROM UTILISATEURS WHERE pseudo=? AND mot_de_passe=?;"; 
+	private static String SQL_VERIFLOGIN = "SELECT * FROM UTILISATEURS WHERE pseudo=? OR email=? AND mot_de_passe=?;"; 
 	private static String SQL_NEW_USER = "INSERT INTO UTILISATEURS (pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, credit, administrateur) VALUES (?,?,?,?,?,?,?,?,?,?,0);";
 	
 	public boolean validerConnexion(String pseudo, String mdp) throws DALException{
@@ -20,7 +20,8 @@ public class JDBCImplObjectDAO {
 			
 			PreparedStatement pS = connection.prepareStatement(SQL_VERIFLOGIN);
 			pS.setString(1, pseudo);
-			pS.setString(2, mdp);		
+			pS.setString(2, pseudo);
+			pS.setString(3, mdp);
 			ResultSet rs = pS.executeQuery();
 			statutCo = rs.next();
 		} catch (SQLException e) {
