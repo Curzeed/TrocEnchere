@@ -12,12 +12,15 @@
 <header>
 <c:if test="${!empty sessionScope.pseudo}">
 	<p>Vous êtes connectés au nom de : ${sessionScope.pseudo} </p>
+	<a href="./Deconnexion">Déconnexion</a>
+	<a href="./Modifier">Modifier </a>
 </c:if>
 	<h1>Page d'accueil</h1>
 	<c:if test="${empty sessionScope.pseudo}">
 		<div>
 				<a href="./Login">login</a><br />
 				<a href="./Inscription">Inscription</a>
+			
 		</div>
 	</c:if>
 </header>
