@@ -18,9 +18,7 @@ public class ServletDeconnexion extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-	//	request.getSession().invalidate();
-		String m = (String) request.getSession().getAttribute("pseudo");
-		System.out.println(m);
+		request.getSession().invalidate();
 		request.getRequestDispatcher("/WEB-INF/PageAccueil.jsp").forward(request, response);
 	}
 

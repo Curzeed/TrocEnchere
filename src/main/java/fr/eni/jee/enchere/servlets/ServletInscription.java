@@ -44,10 +44,12 @@ public class ServletInscription extends HttpServlet {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-		}else {
-			request.setAttribute("erreur", "erreur");
+		}else if (isAlphaNumeric(pseudo) == false) {
 			request.setAttribute("erreur", "Le champ Pseudo contient un caractère non autorisé");
 			request.getRequestDispatcher("/WEB-INF/PageInscription.jsp").forward(request, response);
+		}else {
+			request.setAttribute("erreur", "Compte déjà créé");
+			request.getRequestDispatcher("/WEB-INF/PageInscription.jsp");
 		}
 		
 }

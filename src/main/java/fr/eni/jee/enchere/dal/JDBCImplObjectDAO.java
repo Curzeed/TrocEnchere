@@ -20,7 +20,7 @@ public class JDBCImplObjectDAO {
 			
 			PreparedStatement pS = connection.prepareStatement(SQL_VERIFLOGIN);
 			pS.setString(1, pseudo);
-			pS.setString(2, mdp);
+			pS.setString(2, mdp);		
 			ResultSet rs = pS.executeQuery();
 			statutCo = rs.next();
 		} catch (SQLException e) {
