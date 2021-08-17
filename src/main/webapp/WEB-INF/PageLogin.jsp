@@ -10,7 +10,7 @@ color: red;
 }
 </style>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Login</title>
 </head>
 <body>
 
