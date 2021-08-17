@@ -45,11 +45,7 @@ public class JDBCImplObjectDAO {
 			pS.setString(9,user.getMdp());
 			pS.setInt(10,user.getCredit());
 			pS.executeUpdate();
-		//	ResultSet clesGenerees = pS.getGeneratedKeys(); // Récupérer les colonnes auto incrémentée
-        //    if (clesGenerees.next()) {
-          //      int idGenere = clesGenerees.getInt(1);
-           //     user.setId(idGenere);
-       //     }
+		
 		}catch (SQLException e) {
 			e.printStackTrace();
 			throw new DALException("Problème de l'inscription dans la DAL");

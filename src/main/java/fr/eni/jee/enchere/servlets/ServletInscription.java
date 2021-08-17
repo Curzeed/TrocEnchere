@@ -23,8 +23,7 @@ public class ServletInscription extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ObjectManager om = new ObjectManager();
-		
-		request.getRequestDispatcher("/WEB-INF/PageLogin.jsp");
+	
 		String nom = request.getParameter("nom");
 		String prenom = request.getParameter("prenom");
 		String pseudo = request.getParameter("pseudo");
