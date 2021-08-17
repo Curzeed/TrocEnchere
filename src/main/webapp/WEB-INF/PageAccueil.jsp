@@ -14,11 +14,12 @@
 	<p>Vous êtes connectés au nom de : ${sessionScope.pseudo} </p>
 </c:if>
 	<h1>Page d'accueil</h1>
-	
-		<div>
+	<c:if test="${empty sessionScope.pseudo}">
+	<div>
 				<a href="./Login">login</a><br />
 				<a href="./Inscription">Inscription</a>
 		</div>
+	</c:if>
 </header>
 
 </body>
