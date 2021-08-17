@@ -33,16 +33,26 @@ public class ServletInscription extends HttpServlet {
 		String codepostal = request.getParameter("cp"); 
 		String ville = request.getParameter("ville");
 		String mdp = request.getParameter("mdp");
-	 
-		try {
-			om.addUser(nom,prenom, pseudo, email, tel, rue, codepostal, ville, mdp);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		
+		if(isAlphaNumeric(pseudo) == true){
+			try {
+				om.addUser(pseudo, nom, prenom, email, tel, rue, codepostal, ville, mdp);
+				HttpSession  session = request.getSession();
+				session.setAttribute("pseudo", pseudo);
+				request.getRequestDispatcher("/WEB-INF/PageAccueil.jsp").forward(request, response);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		}else {
+			request.setAttribute("erreur", "erreur");
+			request.setAttribute("erreur", "Le champ Pseudo contient un caractère non autorisé");
+			request.getRequestDispatcher("/WEB-INF/PageInscription.jsp").forward(request, response);
 		}
-		HttpSession session = request.getSession();
-		session.setAttribute("pseudo", pseudo);
-		request.getRequestDispatcher("/WEB-INF/PageAccueil.jsp").forward(request, response);
-	}
+		
+}
+	public static boolean isAlphaNumeric(String s) {
+        return s != null && s.matches("^[a-zA-Z0-9]*$");
+    }
 
 }
