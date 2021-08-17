@@ -16,7 +16,8 @@
 	<h1>Page d'accueil</h1>
 	
 		<div>
-				<a href="./Login">login</a>
+				<a href="./Login">login</a><br />
+				<a href="./Inscription">Inscription</a>
 		</div>
 </header>
 

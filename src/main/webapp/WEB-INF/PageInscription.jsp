@@ -35,6 +35,9 @@
 
 <label for="ville">Ville</label>
 <input type="text" name="ville" placeholder="Votre ville" required/>
+
+<button type="submit">S'inscrire</button>
+
 </form>
 </body>
 </html>
