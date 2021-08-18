@@ -45,7 +45,7 @@ public class ServletInscription extends HttpServlet {
 					e.printStackTrace();
 				}
 		}else if (isAlphaNumeric(pseudo) == false || isAlphaNumeric(email) == false || isAlphaNumeric(prenom)|| isAlphaNumeric(nom) == false || isAlphaNumeric(ville) == false) {
-			request.setAttribute("erreur", "Le champ Pseudo contient un caractère non autorisé");
+			request.setAttribute("erreur", "Un des champs contient un caractère non autorisé");
 			request.getRequestDispatcher("/WEB-INF/PageInscription.jsp").forward(request, response);
 		}else {
 			request.setAttribute("erreur", "Compte déjà créé");
