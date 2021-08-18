@@ -40,8 +40,8 @@ public class ServletInscription extends HttpServlet {
 				HttpSession  session = request.getSession();
 				session.setAttribute("pseudo", pseudo);
 				request.getRequestDispatcher("/WEB-INF/PageAccueil.jsp").forward(request, response);
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
+				} catch (BLLException e) {
+					e.getMessage();
 					e.printStackTrace();
 				}
 		}else if (isAlphaNumeric(pseudo) == false) {

@@ -32,7 +32,7 @@ public class ObjectManager {
 				ObjectDAO.addUser(nouveauUser);
 			} catch(DALException e) {
 				e.printStackTrace();
-				throw new BLLException("Erreur dans la BLL (requête addUser)");
+				throw new BLLException(e.getMessage());
 			}return nouveauUser;
 	
 	}

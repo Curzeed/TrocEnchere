@@ -8,6 +8,7 @@
 <title>Inscription</title>
 </head>
 <body>
+<jsp:include page="PageAccueil.jsp"></jsp:include>
 <h1> Formulaire d'inscription</h1>
 <form action="./Inscription" method="post">
 <c:if test="${!empty erreur}">

@@ -48,6 +48,11 @@ public class JDBCImplObjectDAO {
 			pS.executeUpdate();
 		
 		}catch (SQLException e) {
+			if (e.getMessage().contains("utilisateurs_pseudo_uq")) {
+				throw new DALException("Le pseudo est déjà utilisé");
+			}if (e.getMessage().contains("utilisateurs_email_uq")) {
+				throw new DALException("Le mail est déjà utilisé");
+			}
 			e.printStackTrace();
 			throw new DALException("Problème de l'inscription dans la DAL");
 		}
