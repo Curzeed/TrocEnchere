@@ -30,10 +30,11 @@ public class ServletInscription extends HttpServlet {
 		String email = request.getParameter("email");
 		String tel = request.getParameter("tel");
 		String rue = request.getParameter("rue");
-		String codepostal = request.getParameter("cp"); 
+		String codepostalString = request.getParameter("cp"); 
 		String ville = request.getParameter("ville");
 		String mdp = request.getParameter("mdp");
 		
+		int codepostal = Integer.parseInt(codepostalString);
 		if(isAlphaNumeric(pseudo) == true && isAlphaNumeric(prenom)&& isAlphaNumeric(nom) == true){
 			try {
 				om.addUser(pseudo, nom, prenom, email, tel, rue, codepostal, ville, mdp);
@@ -51,7 +52,8 @@ public class ServletInscription extends HttpServlet {
 			request.setAttribute("erreur", "Compte déjà créé");
 			request.getRequestDispatcher("/WEB-INF/PageInscription.jsp");
 			
-		}
+		}// TODO Faire l'email vérification 
+
 		
 }
 	public static boolean isAlphaNumeric(String s) {

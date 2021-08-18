@@ -13,8 +13,8 @@ public class JDBCImplObjectDAO {
 	private static String SQL_VERIFLOGIN = "SELECT * FROM UTILISATEURS WHERE pseudo=? OR email=? AND mot_de_passe=?;"; 
 	private static String SQL_NEW_USER = "INSERT INTO UTILISATEURS (pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, credit, administrateur) VALUES (?,?,?,?,?,?,?,?,?,?,0);";
 	
-	public boolean validerConnexion(String pseudo, String mdp) throws DALException{
-		boolean statutCo = false;
+	public User validerConnexion(String pseudo, String mdp) throws DALException{
+		User user = null;
 		try {
 			Connection connection = ConnectionProvider.getConnection();
 			
@@ -23,12 +23,27 @@ public class JDBCImplObjectDAO {
 			pS.setString(2, pseudo);
 			pS.setString(3, mdp);
 			ResultSet rs = pS.executeQuery();
-			statutCo = rs.next();
+			if (rs.next()) {
+				int id = rs.getInt("no_utilisateur");
+				String pseudorecup = rs.getString("pseudo");
+				String nom = rs.getString("nom");
+				String prenom = rs.getString("prenom");
+				String email = (String) rs.getString("email");
+				String tel = rs.getString("telephone");
+				String rue = rs.getString("rue");
+				int cp = rs.getInt("code_postal");
+				String ville = rs.getString("ville");
+				String mdprecup = rs.getString("mot_de_passe");
+				int credit = rs.getInt("credit");
+				byte admin = rs.getByte("administrateur");
+				
+				user = new User(id, pseudorecup, nom,prenom, email, tel, rue, cp, ville, mdprecup, credit, admin);
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new DALException("Le login n'est pas reconnu");
+			throw new DALException("Le login n'est pas reconnu ! note technique : " + e.getMessage());
 		}
-		return statutCo;
+		return user;
 	}
 	public void addUser(User user) throws DALException{
 		
@@ -41,7 +56,7 @@ public class JDBCImplObjectDAO {
 			pS.setString(4,user.getEmail());
 			pS.setString(5,user.getTelephone());
 			pS.setString(6,user.getRue());
-			pS.setString(7,user.getCodePostal());
+			pS.setInt(7,user.getCodePostal());
 			pS.setString(8,user.getVille());
 			pS.setString(9,user.getMdp());
 			pS.setInt(10,user.getCredit());

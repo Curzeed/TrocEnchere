@@ -2,21 +2,21 @@ package fr.eni.jee.enchere.bo;
 
 public class User {
 
-	private Integer id;
+	private int id;
 	private String pseudo;
 	private String nom;
 	private String prenom;
 	private String email;
 	private String telephone;
 	private String rue;
-	private String codePostal;
+	private int codePostal;
 	private String ville;
 	private String mdp;
 	private int credit;
-	
+	private byte administrateur;
 	
 	public User(int id, String pseudo, String nom, String prenom, String email, String telephone, String rue,
-			String codePostal, String ville, String mdp, int credit) {
+			int codePostal, String ville, String mdp, int credit) {
 		super();
 		this.id = id;
 		this.pseudo = pseudo;
@@ -32,7 +32,7 @@ public class User {
 	}
 	
 	
-	public User(String pseudo, String nom, String prenom, String email, String telephone, String rue, String codePostal,
+	public User(String pseudo, String nom, String prenom, String email, String telephone, String rue, int codePostal,
 			String ville, String mdp, int credit) {
 		super();
 		this.pseudo = pseudo;
@@ -48,11 +48,40 @@ public class User {
 	}
 
 
+	public User(int id, String pseudo, String nom, String prenom, String email, String telephone, String rue,
+			int codePostal, String ville, String mdp, int credit, byte administrateur) {
+		this.id = id;
+		this.pseudo = pseudo;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = email;
+		this.telephone = telephone;
+		this.rue = rue;
+		this.codePostal = codePostal;
+		this.ville = ville;
+		this.mdp = mdp;
+		this.credit = credit;
+		this.administrateur = administrateur;
+	}
+
+
+	public byte getAdministrateur() {
+		return administrateur;
+	}
+
+
+	public void setAdministrateur(byte administrateur) {
+		this.administrateur = administrateur;
+	}
+
+
 	public User(String pseudo, String mdp) {
 		super();
 		this.pseudo = pseudo;
 		this.mdp = mdp;
 	}
+
+
 
 
 	public Integer getId() {
@@ -125,12 +154,12 @@ public class User {
 	}
 
 
-	public String getCodePostal() {
+	public int getCodePostal() {
 		return codePostal;
 	}
 
 
-	public void setCodePostal(String codePostal) {
+	public void setCodePostal(int codePostal) {
 		this.codePostal = codePostal;
 	}
 

@@ -8,9 +8,9 @@ public class ObjectManager {
 	
 	private JDBCImplObjectDAO ObjectDAO = new JDBCImplObjectDAO();
 	
-	public boolean valideLogin(String pseudo, String mdp) throws BLLException {
+	public User valideLogin(String pseudo, String mdp) throws BLLException {
 		
-		boolean result = false;
+		User result;
 		
 		try {
 			result = ObjectDAO.validerConnexion(pseudo, mdp);
@@ -23,7 +23,7 @@ public class ObjectManager {
 	}
 	
 	
-	public User addUser(String pseudo, String nom, String prenom, String email, String tel, String rue, String codepostal, String ville,
+	public User addUser(String pseudo, String nom, String prenom, String email, String tel, String rue, int codepostal, String ville,
 			String motdePasse) throws BLLException{
 		User nouveauUser;
 		
