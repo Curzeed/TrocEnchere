@@ -28,7 +28,7 @@ public class JDBCImplObjectDAO {
 				String pseudorecup = rs.getString("pseudo");
 				String nom = rs.getString("nom");
 				String prenom = rs.getString("prenom");
-				String email = (String) rs.getString("email");
+				String email =  rs.getString("email");
 				String tel = rs.getString("telephone");
 				String rue = rs.getString("rue");
 				int cp = rs.getInt("code_postal");

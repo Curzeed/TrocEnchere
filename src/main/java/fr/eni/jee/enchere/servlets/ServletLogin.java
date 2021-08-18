@@ -25,12 +25,14 @@ public class ServletLogin extends HttpServlet {
 		String pseudorecup = request.getParameter("pseudo");
 		String mdp = request.getParameter("motdepasse");
 		String erreur = "Pseudo ou mot de passe incorrect";
+		
 		try {
 			user = om.valideLogin(pseudorecup, mdp);
 		} catch (BLLException e1) {
 			request.setAttribute("erreur", e1);
 			e1.printStackTrace();
 		}
+		
 		try {
 			if(user != null ) {
 				 HttpSession session = request.getSession();
@@ -40,10 +42,7 @@ public class ServletLogin extends HttpServlet {
 				 request.setAttribute("erreur",erreur);
 				 request.getRequestDispatcher("/WEB-INF/PageLogin.jsp").forward(request, response);
 			}
-		} catch (ServletException e) {
-			request.setAttribute("erreur",e);
-			e.printStackTrace();
-		} catch (IOException e) {
+		} catch (ServletException | IOException e) {
 			request.setAttribute("erreur",e);
 			e.printStackTrace();
 		}
