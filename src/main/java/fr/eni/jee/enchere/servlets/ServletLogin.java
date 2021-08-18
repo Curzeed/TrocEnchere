@@ -37,6 +37,17 @@ public class ServletLogin extends HttpServlet {
 			if(user != null ) {
 				 HttpSession session = request.getSession();
 				 session.setAttribute("pseudo", user.getPseudo());
+				 session.setAttribute("nom", user.getNom());
+				 session.setAttribute("prenom", user.getPrenom());
+				 session.setAttribute("email", user.getEmail());
+				 session.setAttribute("tel", user.getTelephone());
+				 session.setAttribute("rue", user.getRue());
+				 session.setAttribute("codepostale", user.getCodePostal());
+				 session.setAttribute("ville", user.getVille());
+				 session.setAttribute("mdp", user.getMdp());
+				 session.setAttribute("credit", user.getCredit());
+				 session.setAttribute("administrateur", user.getAdministrateur());
+
 				 request.getRequestDispatcher("/WEB-INF/ListeEnchere.jsp").forward(request, response);
 			}else {
 				 request.setAttribute("erreur",erreur);
