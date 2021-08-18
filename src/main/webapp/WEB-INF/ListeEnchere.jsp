@@ -25,11 +25,29 @@
 				<fieldset>
 					<input type="radio" id="achats" name="radiobutton" value="achats" >
 					<label for="achats">Achats</label><br>
-					
+					<c:if test="">
+						<input type="checkbox" id="encheresOuverte" name="encheresOuverte" value="encheresOuverte" >
+						<label for="achats">enchères ouvertes</label><br>
+						<input type="checkbox" id="mesEncheres" name="mesEncheres" value="mesEncheres" >
+						<label for="achats">mes enchères</label><br>
+						<input type="checkbox" id="encheresRemporté" name="encheresRemporté" value="encheresRemporté" >
+						<label for="achats">mes enchères remportées</label><br>	
+					</c:if>
 				</fieldset>
-				
-				<input type="radio" id="ventes" name="radiobutton" value="ventes">
-				<label for="ventes">Mes Ventes</label><br>
+				<fieldset>
+					
+						<input type="radio" id="ventes" name="radiobutton" value="ventes">
+						<label for="ventes">Mes ventes</label>
+					<c:if test="${!empty ventes}">
+						<input type="checkbox" id="ventesEnCours" name="ventesEnCours" value="ventesEnCours" >
+						<label for="ventes">mes ventes en cours</label><br>
+						<input type="checkbox" id="ventesNomDebutées" name="ventesNomDebutées" value="ventesNomDebutées" >
+						<label for="ventes">ventes nom debutées</label><br>
+						<input type="checkbox" id="ventesTerminées" name="ventesTerminées" value="ventesTerminées" >
+						<label for="ventes">ventes terminées</label><br>
+					</c:if>
+				</fieldset>
+		
 				
 				<button type="submit" >Rechercher</button>
 			</form>

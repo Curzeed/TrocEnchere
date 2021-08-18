@@ -35,6 +35,7 @@ public class ServletLogin extends HttpServlet {
 		} catch (BLLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			
 		} catch (ServletException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

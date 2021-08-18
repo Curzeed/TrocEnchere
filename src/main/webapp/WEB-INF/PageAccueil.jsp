@@ -13,9 +13,11 @@
 <c:if test="${!empty sessionScope.pseudo}">
    <div>
 	<p>Vous êtes connectés au nom de : ${sessionScope.pseudo} </p>
-	<a href="./Deconnexion">Déconnexion</a>
-	<a href="./Modifier">Modifier </a>
-	<a href="./gererProfil"> Gérer mon profil</a>
+	<a href="./Deconnexion"> Déconnexion </a>
+	<a href="./Modifier"> Modifier </a>
+	<a href="./gererProfil"> Gérer mon profil </a>
+	<a href="./venteEnchere"> Vendre un article</a>
+	
    </div>
 </c:if>
 	
