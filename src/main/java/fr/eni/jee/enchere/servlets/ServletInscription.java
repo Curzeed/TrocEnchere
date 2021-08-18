@@ -34,7 +34,7 @@ public class ServletInscription extends HttpServlet {
 		String ville = request.getParameter("ville");
 		String mdp = request.getParameter("mdp");
 		
-		if(isAlphaNumeric(pseudo) == true || isAlphaNumeric(email) == true || isAlphaNumeric(prenom)|| isAlphaNumeric(nom) == true || isAlphaNumeric(ville) == true){
+		if(isAlphaNumeric(pseudo) == true && isAlphaNumeric(prenom)&& isAlphaNumeric(nom) == true){
 			try {
 				om.addUser(pseudo, nom, prenom, email, tel, rue, codepostal, ville, mdp);
 				HttpSession  session = request.getSession();
@@ -42,19 +42,20 @@ public class ServletInscription extends HttpServlet {
 				request.getRequestDispatcher("/WEB-INF/PageAccueil.jsp").forward(request, response);
 				} catch (BLLException e) {
 					e.getMessage();
-					e.printStackTrace();
+					request.setAttribute("erreur", e);
 				}
-		}else if (isAlphaNumeric(pseudo) == false || isAlphaNumeric(email) == false || isAlphaNumeric(prenom)|| isAlphaNumeric(nom) == false || isAlphaNumeric(ville) == false) {
+		}else if (isAlphaNumeric(pseudo) == false || isAlphaNumeric(prenom) || isAlphaNumeric(nom) == false || isAlphaNumeric(ville) == false) {
 			request.setAttribute("erreur", "Un des champs contient un caractère non autorisé");
 			request.getRequestDispatcher("/WEB-INF/PageInscription.jsp").forward(request, response);
 		}else {
 			request.setAttribute("erreur", "Compte déjà créé");
 			request.getRequestDispatcher("/WEB-INF/PageInscription.jsp");
+			
 		}
 		
 }
 	public static boolean isAlphaNumeric(String s) {
-        return s != null && s.matches("^[a-zA-Z0-9]*$");
+		return s.matches("[A-Za-z0-9]+");
     }
 
 }

@@ -11,9 +11,6 @@
 <jsp:include page="PageAccueil.jsp"></jsp:include>
 <h1> Formulaire d'inscription</h1>
 <form action="./Inscription" method="post">
-<c:if test="${!empty erreur}">
-	<p>Votre pseudo contient des caractères spéciaux non autorisés</p>
-</c:if>
 <label for="pseudo">Pseudo :</label>
 <input type="text" name="pseudo" placeholder="Votre pseudo" required/>
 
@@ -42,7 +39,10 @@
 <input type="text" name="ville" placeholder="Votre ville" required/>
 
 <button type="submit">S'inscrire</button>
-
+<br>
+<c:if test="${!empty erreur}">	
+	 <p style="color : red;"><c:out value="${erreur}"/></p>
+ </c:if>
 </form>
 </body>
 </html>

@@ -4,11 +4,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-.erreurmsg{
-color: red;
-}
-</style>
 <meta charset="UTF-8">
 <title>Login</title>
 </head>
@@ -21,7 +16,7 @@ color: red;
 	<label for="motdepasse" class="labelmdp">Mot de passe : </label>
 	<input type="password" class="inputmdp" name="motdepasse"/>
 	<c:if test="${!empty erreur}">
-		<p class="erreurmsg">${erreur}</p>
+		<p class="erreurmsg" style="color : red;">${erreur}</p>
 	</c:if>
 	<br />
 	<button type="submit">Se connecter</button>
