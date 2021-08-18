@@ -6,21 +6,26 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/style.css" />
-<title>Acceuil</title>
+<title>Accueil</title>
 </head>
 <body>
 <header>
 <c:if test="${!empty sessionScope.pseudo}">
+   <div>
 	<p>Vous êtes connectés au nom de : ${sessionScope.pseudo} </p>
-	<a href="./Deconnexion">Déconnexion</a>
-	<br>
-	<a href="./MonProfil">Gérer mon profil</a>
+	<a href="./Deconnexion"> Déconnexion </a>
+	<a href="./Modifier"> Modifier </a>
+	<a href="./gererProfil"> Gérer mon profil </a>
+	<a href="./venteEnchere"> Vendre un article</a>
+	
+   </div>
 </c:if>
-	<h1>Page d'accueil</h1>
+	
 	<c:if test="${empty sessionScope.pseudo}">
 		<div>
 				<a href="./Login">login</a><br />
 				<a href="./Inscription">Inscription</a>
+			
 		</div>
 	</c:if>
 </header>
