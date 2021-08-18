@@ -34,7 +34,7 @@ public class ServletInscription extends HttpServlet {
 		String ville = request.getParameter("ville");
 		String mdp = request.getParameter("mdp");
 		
-		if(isAlphaNumeric(pseudo) == true){
+		if(isAlphaNumeric(pseudo) == true || isAlphaNumeric(email) == true || isAlphaNumeric(prenom)|| isAlphaNumeric(nom) == true || isAlphaNumeric(ville) == true){
 			try {
 				om.addUser(pseudo, nom, prenom, email, tel, rue, codepostal, ville, mdp);
 				HttpSession  session = request.getSession();
@@ -44,7 +44,7 @@ public class ServletInscription extends HttpServlet {
 					e.getMessage();
 					e.printStackTrace();
 				}
-		}else if (isAlphaNumeric(pseudo) == false) {
+		}else if (isAlphaNumeric(pseudo) == false || isAlphaNumeric(email) == false || isAlphaNumeric(prenom)|| isAlphaNumeric(nom) == false || isAlphaNumeric(ville) == false) {
 			request.setAttribute("erreur", "Le champ Pseudo contient un caractère non autorisé");
 			request.getRequestDispatcher("/WEB-INF/PageInscription.jsp").forward(request, response);
 		}else {
