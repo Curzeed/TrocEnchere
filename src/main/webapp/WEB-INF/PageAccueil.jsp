@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/styleAccueil.css" />
 <title>Accueil</title>
 </head>
 <body>
@@ -21,7 +21,7 @@
 </c:if>
 	
 	<c:if test="${empty sessionScope.utilisateur}">
-		<div>
+		<div class="offline-buttons">
 				<a href="./Login">login</a><br />
 				<a href="./Inscription">Inscription</a>
 			
