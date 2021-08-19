@@ -12,16 +12,28 @@
 	<c:if test="${!empty sessionScope.pseudo}">
 		<div>
 			<form action="./ListeEnchere">
-				<input type="text" placeholder="nom de l'article"/>
+<!-- 				<input type="text" placeholder="nom de l'article"/>
 				
 				
 				<label for="categorie">Categorie :</label>
 				<select name="categorieOn" id="categorie">
 				
-					<option value=""> Choisir une catégorie</option><br>
-					<option value=""> Jsp</option>
+					<option value=""> Choisir une catégorie</option>
+					<option value="antiquite"> Archéologie-Antiquité</option>
+					<option value="argenterie"> Argenterie-Orfèvrerie</option>
+					<option value="electromenager">Electroménager</option>
+					<option value="jouet"> Jouets</option>
+					<option value="jeuxVideo">Jeux vidéo-Consoles</option>
+					<option value="livre"> Livres</option>
+					<option value="mobilier">Mobilier</option>
+					<option value="musique">Musique-CD-Vinyles</option>
+					<option value="objetArt"> Objet-Art</option>
+					<option value="sculptures"> Sculptures</option>
+					<option value="sport"> Sport</option>
+					<option value="tableau"> Tableau</option>
+					<option value="vin"> Vins-Spiritueux</option>
 				
-				</select>
+				</select> -->
 				<fieldset> 
 					<input type="radio" id="achats" name="radiobutton" value="achats" >
 					<label for="achats">Achats</label><br>
@@ -54,7 +66,7 @@
 	    </div>
 </c:if>
 	
-	<c:if test="${empty sessionScope.pseudo}">
+	<c:if test="${empty sessionScope.utilisateur.pseudo}">
 		<div>
 			<h3>Filtres</h3>
 			<form action="./ListeEnchere">
@@ -66,7 +78,19 @@
 			<select name="categorie" id="categorie">
 			
 				<option value=""> Choisir une catégorie</option>
-				<option value=""> Jsp</option>
+					<option value="antiquite"> Archéologie-Antiquité</option>
+					<option value="argenterie"> Argenterie-Orfèvrerie</option>
+					<option value="electromenager">Electroménager</option>
+					<option value="jouet"> Jouets</option>
+					<option value="jeuxVideo">Jeux vidéo-Consoles</option>
+					<option value="livre"> Livres</option>
+					<option value="mobilier">Mobilier</option>
+					<option value="musique">Musique-CD-Vinyles</option>
+					<option value="objetArt"> Objet-Art</option>
+					<option value="sculptures"> Sculptures</option>
+					<option value="sport"> Sport</option>
+					<option value="tableau"> Tableau</option>
+					<option value="vin"> Vins-Spiritueux</option>
 			
 			</select>
 			
