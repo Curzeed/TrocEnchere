@@ -10,7 +10,7 @@ import fr.eni.jee.enchere.bo.User;
 import fr.eni.jee.enchere.dal.ConnectionProvider;
 
 public class JDBCImplObjectDAO {
-	private static String SQL_MODIFY_USER = "UPDATE UTILISATEURS SET pseudo=?,nom=?,prenom=?,email=?,telephone=?,rue=?,code_postal=?,ville=?,mot_de_passe=? WHERE id=?;";
+	private static String SQL_MODIFY_USER = "UPDATE UTILISATEURS SET pseudo=?,nom=?,prenom=?,email=?,telephone=?,rue=?,code_postal=?,ville=?,mot_de_passe=? WHERE no_utilisateur=?;";
 	private static String SQL_VERIFLOGIN = "SELECT * FROM UTILISATEURS WHERE pseudo=? OR email=? AND mot_de_passe=?;"; 
 	private static String SQL_NEW_USER = "INSERT INTO UTILISATEURS (pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, credit, administrateur) VALUES (?,?,?,?,?,?,?,?,?,?,0);";
 	
@@ -89,6 +89,7 @@ public class JDBCImplObjectDAO {
 			pS.setInt(10, utilisateur.getId());
 			pS.executeUpdate();
 		}catch (SQLException e) {
+			e.printStackTrace();
 			if (e.getMessage().contains("utilisateurs_pseudo_uq")) {
 				e.printStackTrace();
 				throw new DALException("Le pseudo est déjà utilisé");
