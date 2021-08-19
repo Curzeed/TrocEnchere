@@ -10,6 +10,7 @@ import fr.eni.jee.enchere.bo.User;
 import fr.eni.jee.enchere.dal.ConnectionProvider;
 
 public class JDBCImplObjectDAO {
+	private static String SQL_MODIFY_USER = "UPDATE UTILISATEURS SET pseudo=?,nom=?,prenom=?,email=?,telephone=?,rue=?,code_postal=?,ville=?,mot_de_passe=? WHERE id=?;";
 	private static String SQL_VERIFLOGIN = "SELECT * FROM UTILISATEURS WHERE pseudo=? OR email=? AND mot_de_passe=?;"; 
 	private static String SQL_NEW_USER = "INSERT INTO UTILISATEURS (pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, credit, administrateur) VALUES (?,?,?,?,?,?,?,?,?,?,0);";
 	
@@ -70,6 +71,31 @@ public class JDBCImplObjectDAO {
 			}
 			e.printStackTrace();
 			throw new DALException("Problème de l'inscription dans la DAL");
+		}
+	}
+	public void modifyUser(User utilisateur) throws DALException {
+		try {
+			Connection connection = ConnectionProvider.getConnection();
+			PreparedStatement pS = connection.prepareStatement(SQL_MODIFY_USER);
+			pS.setString(1, utilisateur.getPseudo());
+			pS.setString(2, utilisateur.getNom());
+			pS.setString(3, utilisateur.getPrenom());
+			pS.setString(4, utilisateur.getEmail());
+			pS.setString(5, utilisateur.getTelephone());
+			pS.setString(6, utilisateur.getRue());
+			pS.setInt(7, utilisateur.getCodePostal());
+			pS.setString(8, utilisateur.getVille());
+			pS.setString(9, utilisateur.getMdp());
+			pS.setInt(10, utilisateur.getId());
+			pS.executeUpdate();
+		}catch (SQLException e) {
+			if (e.getMessage().contains("utilisateurs_pseudo_uq")) {
+				e.printStackTrace();
+				throw new DALException("Le pseudo est déjà utilisé");
+			}if(e.getMessage().contains("utilisateurs_email_uq")) {
+				e.printStackTrace();
+				throw new DALException("L'email est déjà utilisée");
+			}
 		}
 	}
 }

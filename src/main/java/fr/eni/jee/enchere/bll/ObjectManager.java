@@ -36,5 +36,15 @@ public class ObjectManager {
 			}return nouveauUser;
 	
 	}
+
+
+	public void modifyManager(User utilisateur) throws BLLException {
+		try {
+			ObjectDAO.modifyUser(utilisateur);
+		}catch (DALException e) {
+			e.printStackTrace();
+			throw new BLLException("Erreur dans la BLL (requête pour modifier un utilisateur");
+		}
+	}
 		   
 }

@@ -22,10 +22,10 @@
 					<option value=""> Jsp</option>
 				
 				</select>
-				<fieldset>
+				<fieldset> 
 					<input type="radio" id="achats" name="radiobutton" value="achats" >
 					<label for="achats">Achats</label><br>
-					<c:if test="">
+					<c:if test=""> <!-- TODO faire la condition du c:if -->
 						<input type="checkbox" id="encheresOuverte" name="encheresOuverte" value="encheresOuverte" >
 						<label for="achats">enchères ouvertes</label><br>
 						<input type="checkbox" id="mesEncheres" name="mesEncheres" value="mesEncheres" >

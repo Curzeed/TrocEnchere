@@ -10,18 +10,17 @@
 </head>
 <body>
 <header>
-<c:if test="${!empty sessionScope.pseudo}">
+<c:if test="${!empty sessionScope.utilisateur}">
    <div>
-	<p>Vous êtes connectés au nom de : ${sessionScope.pseudo} </p>
+	<p>Vous êtes connectés au nom de : ${sessionScope.utilisateur.prenom} ${sessionScope.utilisateur.nom} </p>
 	<a href="./Deconnexion"> Déconnexion </a>
-	<a href="./Modifier"> Modifier </a>
-	<a href="./gererProfil"> Gérer mon profil </a>
+	<a href="./MonProfil"> Gérer mon profil </a>
 	<a href="./venteEnchere"> Vendre un article</a>
 	
    </div>
 </c:if>
 	
-	<c:if test="${empty sessionScope.pseudo}">
+	<c:if test="${empty sessionScope.utilisateur}">
 		<div>
 				<a href="./Login">login</a><br />
 				<a href="./Inscription">Inscription</a>
