@@ -1,5 +1,7 @@
 package fr.eni.jee.enchere.bll;
 
+import java.sql.Date;
+
 import fr.eni.jee.enchere.bo.Article;
 import fr.eni.jee.enchere.dal.DALException;
 import fr.eni.jee.enchere.dal.JDBCImlpArticleDAO;
@@ -8,14 +10,12 @@ public class ArticleManager {
 	
 	private JDBCImlpArticleDAO ArticleDAO = new JDBCImlpArticleDAO();
 
-	public Article addArticle( String article, String description, String dateDebut, 
-			String dateFin, int prix, int idVendeur, String categorie, String etat_vente, String image )throws BLLException{
+	public Article addArticle( String article, String description, Date dateDebut, 
+			Date dateFin, int prix, int no_utilisateur, int no_categorie, String etat, String image )throws BLLException{
 		Article nouveauArticle;
 		
 		try {
-			nouveauArticle = new Article ( article, description, dateDebut, dateFin, prix,
-					 idVendeur, categorie, etat_vente, image); 
-				
+				nouveauArticle = new Article(article, description, dateDebut, dateFin, prix, no_utilisateur, no_categorie, etat, image);
 			ArticleDAO.addArticle(nouveauArticle); 	
 			}catch (DALException e) {
 				e.printStackTrace();

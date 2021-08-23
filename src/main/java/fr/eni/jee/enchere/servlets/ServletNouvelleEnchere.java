@@ -17,11 +17,11 @@ import fr.eni.jee.enchere.bo.User;
 
 @WebServlet("/venteEnchere")
 @MultipartConfig 
-public class ServletVenteEnchere extends HttpServlet {
+public class ServletNouvelleEnchere extends HttpServlet {
 	private static final long serialVersionUID = 1L;
    
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArticleManager om = new ArticleManager();
+		ArticleManager am = new ArticleManager();
 		
 		
 		User utilisateur = (User) request.getSession().getAttribute("utilisateur");
@@ -29,30 +29,18 @@ public class ServletVenteEnchere extends HttpServlet {
 		String description = request.getParameter("description");
 		String categorie = request.getParameter("categorie");
 		String image = request.getParameter("img");
-		String prixRecup = request.getParameter("number");
+		String prixRecup = request.getParameter("prix");
 		String dateDebut = request.getParameter("dateDebut");
 		String dateFin = request.getParameter("dateFin");
-		String rue = request.getParameter("rue");
-		String cpRecup = request.getParameter("cp");
-		String ville = request.getParameter("ville");
 		String etatVente = "EC";
-		
-		int cp = Integer.parseInt(cpRecup);
 		int prix = Integer.parseInt(prixRecup);
-		
-//		if(isAlphaNumeric(article) == true && isAlphaNumeric(description) == true && isAlphaNumeric(rue) == true && isAlphaNumeric(ville)==true) {
-//			try {
-  			try {
-				om.addArticle(article, description, dateDebut, 
-						dateFin, prix, utilisateur.getId(), categorie, etatVente, image);
-			} catch (BLLException e) {
-				
-				e.printStackTrace();
-			}
-//			}
-//		} 
-		
-		request.getRequestDispatcher("/WEB-INF/NouvelleVente.jsp").forward(request, response);
+		int no_categorie = 1;
+		try {
+			am.addArticle(article, description, dateDebut, dateFin, prix, utilisateur.getId(), no_categorie, etatVente, image);
+		}catch (BLLException e) {
+			request.setAttribute("erreur", e);
+			e.printStackTrace();
+		}
 	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/WEB-INF/NouvelleVente.jsp").forward(request, response);

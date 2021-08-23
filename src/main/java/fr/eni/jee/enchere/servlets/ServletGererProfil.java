@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 public class ServletGererProfil extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getSession();
+		
 		request.getRequestDispatcher("/WEB-INF/PageGererProfil.jsp").forward(request, response);;
 	}
 }

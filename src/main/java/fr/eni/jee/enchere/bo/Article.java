@@ -1,22 +1,41 @@
 package fr.eni.jee.enchere.bo;
 
+import java.time.LocalDate;
+
 public class Article {
 	
 	private int idArticle;
 	private String article;
 	private String description;
-	private String dateDebut;
-	private String dateFin;
+	private LocalDate dateDebut;
+	private LocalDate dateFin;
 	private int prix;
 	private int prix_vente;
 	private int idVendeur;
-	private String categorie;
+	private int categorie;
 	private String etat = "CR";
 	private String image;
 	
 	
-	public Article(int idArticle, String article, String description, String dateDebut, String dateFin, int prix,
-			int prix_vente, int idVendeur, String categorie, String etat, String image) {
+	
+
+
+	public Article(String article, String description, LocalDate dateDebut, LocalDate dateFin, int prix, int idVendeur,
+			int categorie, String etat, String image) {
+		this.article = article;
+		this.description = description;
+		this.dateDebut = dateDebut;
+		this.dateFin = dateFin;
+		this.prix = prix;
+		this.idVendeur = idVendeur;
+		this.categorie = categorie;
+		this.etat = etat;
+		this.image = image;
+	}
+
+
+	public Article(int idArticle, String article, String description, LocalDate dateDebut, LocalDate dateFin, int prix,
+			int prix_vente, int idVendeur, int categorie, String etat, String image) {
 		super();
 		this.idArticle = idArticle;
 		this.article = article;
@@ -25,36 +44,6 @@ public class Article {
 		this.dateFin = dateFin;
 		this.prix = prix;
 		this.prix_vente = prix_vente;
-		this.idVendeur = idVendeur;
-		this.categorie = categorie;
-		this.etat = etat;
-		this.image = image;
-	}
-
-
-	public Article(String article, String description, String dateDebut, String dateFin, int prix, int prix_vente,
-			int idVendeur, String categorie, String etat, String image) {
-		super();
-		this.article = article;
-		this.description = description;
-		this.dateDebut = dateDebut;
-		this.dateFin = dateFin;
-		this.prix = prix;
-		this.prix_vente = prix_vente;
-		this.idVendeur = idVendeur;
-		this.categorie = categorie;
-		this.etat = etat;
-		this.image = image;
-	}
-
-	public Article(String article, String description, String dateDebut, String dateFin, int prix, int idVendeur,
-			String categorie, String etat, String image) {
-		super();
-		this.article = article;
-		this.description = description;
-		this.dateDebut = dateDebut;
-		this.dateFin = dateFin;
-		this.prix = prix;
 		this.idVendeur = idVendeur;
 		this.categorie = categorie;
 		this.etat = etat;
@@ -91,27 +80,6 @@ public class Article {
 		this.description = description;
 	}
 
-
-	public String getDateDebut() {
-		return dateDebut;
-	}
-
-
-	public void setDateDebut(String dateDebut) {
-		this.dateDebut = dateDebut;
-	}
-
-
-	public String getDateFin() {
-		return dateFin;
-	}
-
-
-	public void setDateFin(String dateFin) {
-		this.dateFin = dateFin;
-	}
-
-
 	public int getPrix() {
 		return prix;
 	}
@@ -142,12 +110,35 @@ public class Article {
 	}
 
 
-	public String getCategorie() {
+	
+
+
+	public LocalDate getDateDebut() {
+		return dateDebut;
+	}
+
+
+	public void setDateDebut(LocalDate dateDebut) {
+		this.dateDebut = dateDebut;
+	}
+
+
+	public LocalDate getDateFin() {
+		return dateFin;
+	}
+
+
+	public void setDateFin(LocalDate dateFin) {
+		this.dateFin = dateFin;
+	}
+
+
+	public int getCategorie() {
 		return categorie;
 	}
 
 
-	public void setCategorie(String categorie) {
+	public void setCategorie(int categorie) {
 		this.categorie = categorie;
 	}
 
