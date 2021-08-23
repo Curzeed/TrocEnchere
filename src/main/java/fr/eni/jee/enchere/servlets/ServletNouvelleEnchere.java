@@ -1,17 +1,16 @@
 package fr.eni.jee.enchere.servlets;
 
 import java.io.IOException;
+import java.time.LocalDate;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 import fr.eni.jee.enchere.bll.ArticleManager;
 import fr.eni.jee.enchere.bll.BLLException;
-import fr.eni.jee.enchere.bll.ObjectManager;
 import fr.eni.jee.enchere.bo.User;
 
 
@@ -35,8 +34,11 @@ public class ServletNouvelleEnchere extends HttpServlet {
 		String etatVente = "EC";
 		int prix = Integer.parseInt(prixRecup);
 		int no_categorie = 1;
+		LocalDate NewDateDebut = LocalDate.parse(dateDebut);
+		LocalDate NewDateFin = LocalDate.parse(dateFin);
+		
 		try {
-			am.addArticle(article, description, dateDebut, dateFin, prix, utilisateur.getId(), no_categorie, etatVente, image);
+			am.addArticle(article, description, NewDateDebut, NewDateFin, prix, utilisateur.getId(), no_categorie, etatVente, image);
 		}catch (BLLException e) {
 			request.setAttribute("erreur", e);
 			e.printStackTrace();

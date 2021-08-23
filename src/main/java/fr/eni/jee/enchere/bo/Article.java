@@ -51,6 +51,12 @@ public class Article {
 	}
 
 
+	public Article(int idArticle, String article, String description, LocalDate localDate, LocalDate localDate2, int int2,
+			int int3, int int4, String string3, String string4) {
+		// TODO Auto-generated constructor stub
+	}
+
+
 	public int getIdArticle() {
 		return idArticle;
 	}

@@ -21,24 +21,16 @@
 		<input type="text" name="description"/> 
 		<label for="categorie">Categorie :</label>
 		<select name="categorie" id="categorie">
-
-			<option value="" >Choisir une catégorie</option>
-			<option value="antiquite">Archéologie-Antiquité</option>
-			<option value="argenterie">Argenterie-Orfèvrerie</option>
-			<option value="electromenager">Electroménager</option>
-			<option value="jouet">Jouets</option>
-			<option value="jeuxVideo">Jeux vidéo-Consoles</option>
-			<option value="livre">Livres</option>
-			<option value="mobilier">Mobilier</option>
-			<option value="musique">Musique-CD-Vinyles</option>
-			<option value="objetArt">Objet-Art</option>
-			<option value="sculptures">Sculptures</option>
-			<option value="sport">Sport</option>
-			<option value="tableau">Tableau</option>
-			<option value="vin">Vins-Spiritueux</option>
-		
-		</select><br> <label for="photo">Photo de l'article</label> <input
-			type="file" accept="image/png,image/jpeg" name="img">
+			 <c:forEach items="${listCategory}" var="category">
+                <option value="${category.id}"
+                    <c:if test="${category.id eq selectedCatId}">selected="selected"</c:if>
+                    >
+                    ${category.name}
+                </option>
+            </c:forEach>	
+		</select><br> 
+		<label for="photo">Photo de l'article</label>
+		<input type="file" accept="image/png,image/jpeg" name="img">
 			<img id="uploadPreview" style="width: 100px; height: 100px;"/> 
 			<script type="text/javascript"> 
 			function PreviewImage() { 
@@ -48,12 +40,12 @@
 			document.getElementById("uploadPreview").src = oFREvent.target.result; };}; 
 			</script> <br>
 			
-		<label for="miseAPrix">Mise à prix : </label> <input type="number"
-			name="prix" min="0" max="10000"><br> <label
-			for="DebutEnchere">Début de l'enchère :</label> <input
-			type="datetime" name="dateDebut"><br> <label
-			for="FinEnchere">Fin de l'enchère :</label> <input
-			type="datetime" name="dateFin"><br>
+		<label for="miseAPrix">Mise à prix : </label> 
+		<input type="number"name="prix" min="0" max="10000"><br> 
+		<label for="DebutEnchere">Début de l'enchère :</label> 
+		<input type="datetime-local" name="dateDebut"><br> 
+		<label for="FinEnchere">Fin de l'enchère :</label> 
+		<input type="datetime-local" name="dateFin"><br>
 
 		<fieldset>
 			<legend>Retrait</legend>
