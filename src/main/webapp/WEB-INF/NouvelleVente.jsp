@@ -20,13 +20,12 @@
 		<label for="article">Description :</label> 
 		<input type="text" name="description"/> 
 		<label for="categorie">Categorie :</label>
-		<select name="categorie" id="categorie">
-			 <c:forEach items="${listCategory}" var="category">
-                <option value="${category.id}"
-                    <c:if test="${category.id eq selectedCatId}">selected="selected"</c:if>
-                    >
-                    ${category.name}
+		<select name="categories">
+			 <c:forEach items="${listcategory}" var="category">
+                <option value="${category.no_categorie}">
+                    ${category.libelle}
                 </option>
+                
             </c:forEach>	
 		</select><br> 
 		<label for="photo">Photo de l'article</label>

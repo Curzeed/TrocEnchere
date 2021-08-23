@@ -1,14 +1,14 @@
 package fr.eni.jee.enchere.bo;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Article {
 	
 	private int idArticle;
 	private String article;
 	private String description;
-	private LocalDate dateDebut;
-	private LocalDate dateFin;
+	private LocalDateTime dateDebut;
+	private LocalDateTime dateFin;
 	private int prix;
 	private int prix_vente;
 	private int idVendeur;
@@ -20,12 +20,12 @@ public class Article {
 	
 
 
-	public Article(String article, String description, LocalDate dateDebut, LocalDate dateFin, int prix, int idVendeur,
+	public Article(String article, String description, LocalDateTime dateDebut2, LocalDateTime dateFin2, int prix, int idVendeur,
 			int categorie, String etat, String image) {
 		this.article = article;
 		this.description = description;
-		this.dateDebut = dateDebut;
-		this.dateFin = dateFin;
+		this.dateDebut = dateDebut2;
+		this.dateFin = dateFin2;
 		this.prix = prix;
 		this.idVendeur = idVendeur;
 		this.categorie = categorie;
@@ -34,7 +34,7 @@ public class Article {
 	}
 
 
-	public Article(int idArticle, String article, String description, LocalDate dateDebut, LocalDate dateFin, int prix,
+	public Article(int idArticle, String article, String description, LocalDateTime dateDebut, LocalDateTime dateFin, int prix,
 			int prix_vente, int idVendeur, int categorie, String etat, String image) {
 		super();
 		this.idArticle = idArticle;
@@ -50,12 +50,20 @@ public class Article {
 		this.image = image;
 	}
 
-
-	public Article(int idArticle, String article, String description, LocalDate localDate, LocalDate localDate2, int int2,
-			int int3, int int4, String string3, String string4) {
-		// TODO Auto-generated constructor stub
+	public Article(int idArticle, String article, String description, LocalDateTime dateDebut, LocalDateTime dateFin,
+			int prix, int idVendeur, int categorie, String etat, String image) {
+		super();
+		this.idArticle = idArticle;
+		this.article = article;
+		this.description = description;
+		this.dateDebut = dateDebut;
+		this.dateFin = dateFin;
+		this.prix = prix;
+		this.idVendeur = idVendeur;
+		this.categorie = categorie;
+		this.etat = etat;
+		this.image = image;
 	}
-
 
 	public int getIdArticle() {
 		return idArticle;
@@ -119,22 +127,22 @@ public class Article {
 	
 
 
-	public LocalDate getDateDebut() {
+	public LocalDateTime getDateDebut() {
 		return dateDebut;
 	}
 
 
-	public void setDateDebut(LocalDate dateDebut) {
+	public void setDateDebut(LocalDateTime dateDebut) {
 		this.dateDebut = dateDebut;
 	}
 
 
-	public LocalDate getDateFin() {
+	public LocalDateTime getDateFin() {
 		return dateFin;
 	}
 
 
-	public void setDateFin(LocalDate dateFin) {
+	public void setDateFin(LocalDateTime dateFin) {
 		this.dateFin = dateFin;
 	}
 

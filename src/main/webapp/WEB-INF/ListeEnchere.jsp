@@ -11,26 +11,16 @@
 	<jsp:include page="PageAccueil.jsp"></jsp:include>
 		<div>
 			<form action="./ListeEnchere" method="post">
-			<input type="text" placeholder="nom de l'article"/>
 				<label for="categorie">Categorie :</label>
-				<select name="categorieOn" id="categorie">
+		<select name="${category}" id="">
+			 <c:forEach items="${category}" var="category">
+                <option value="${category.no_categorie}">
+                    ${category.libelle}
+                </option>
+                
+            </c:forEach>	
+		</select><br> 
 				
-					<option value=""> Choisir une catégorie</option>
-					<option value="antiquite"> Archéologie-Antiquité</option>
-					<option value="argenterie"> Argenterie-Orfèvrerie</option>
-					<option value="electromenager">Electroménager</option>
-					<option value="jouet"> Jouets</option>
-					<option value="jeuxVideo">Jeux vidéo-Consoles</option>
-					<option value="livre"> Livres</option>
-					<option value="mobilier">Mobilier</option>
-					<option value="musique">Musique-CD-Vinyles</option>
-					<option value="objetArt"> Objet-Art</option>
-					<option value="sculptures"> Sculptures</option>
-					<option value="sport"> Sport</option>
-					<option value="tableau"> Tableau</option>
-					<option value="vin"> Vins-Spiritueux</option>
-				
-				</select>
 				<c:if test="${!empty sessionScope.utilisateur.pseudo}">
 				<fieldset> 
 					<input type="radio" id="achats" name="radiobutton" value="achats" >
