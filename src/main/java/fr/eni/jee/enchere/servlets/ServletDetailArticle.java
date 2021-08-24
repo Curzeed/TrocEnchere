@@ -1,6 +1,8 @@
 package fr.eni.jee.enchere.servlets;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,13 +31,8 @@ public class ServletDetailArticle extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		try {
-			
-			
-			request.getRequestDispatcher("/WEB-INF/PageArticle.jsp").forward(request, response);
-		}catch (ServletException | IOException e ){
-			e.printStackTrace();
-		}
+		List<Article> listeArticle = (List<Article>) request.getSession().getAttribute("encheres");
+		
 	}
 
 	/**

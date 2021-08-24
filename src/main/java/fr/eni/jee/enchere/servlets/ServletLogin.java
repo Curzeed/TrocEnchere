@@ -3,6 +3,7 @@ package fr.eni.jee.enchere.servlets;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -25,7 +26,9 @@ public class ServletLogin extends HttpServlet {
 		String pseudorecup = request.getParameter("pseudo");
 		String mdp = request.getParameter("motdepasse");
 		String erreur = "Pseudo ou mot de passe incorrect";
-		
+		String souvenir = request.getParameter("souvenir");
+		String name = request.getParameter("pseudo");
+		String password = request.getParameter("motdepasse");
 		try {
 			user = om.valideLogin(pseudorecup, mdp);
 		} catch (BLLException e1) {
@@ -37,6 +40,17 @@ public class ServletLogin extends HttpServlet {
 			if(user != null ) {
 				 HttpSession session = request.getSession();
 				 session.setAttribute("utilisateur", user);
+				 request.getRequestDispatcher("/ListeEnchere").forward(request, response);	 
+				 if(souvenir!=null) {
+					 	Cookie ck = new Cookie("pseudo",name);
+						ck.setMaxAge(-1);
+						response.addCookie(ck);
+						/*
+						Cookie ck2 = new Cookie("motdepasse",password);
+						ck2.setMaxAge(27224*257257*654);
+						response.addCookie(ck2);
+						*/	
+					 }
 				 request.getRequestDispatcher("/ListeEnchere").forward(request, response);
 			}else {
 				 request.setAttribute("erreur",erreur);
@@ -46,10 +60,14 @@ public class ServletLogin extends HttpServlet {
 			request.setAttribute("erreur",e);
 			e.printStackTrace();
 		}
+		
+		
+		
 	}
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
 		req.getRequestDispatcher("/WEB-INF/PageLogin.jsp").forward(req, resp);
+		
 	}
-	
 
 }

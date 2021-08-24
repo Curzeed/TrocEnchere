@@ -15,6 +15,8 @@ public class Article {
 	private int categorie;
 	private String etat = "CR";
 	private String image;
+	private User user;
+	private Enchere enchere;
 	
 	
 	
@@ -68,13 +70,15 @@ public class Article {
 
 
 
-	public Article(String article, LocalDateTime dateFin,String image,  int prix_vente, int idVendeur) {
+	public Article(String article, LocalDateTime dateFin,String image,  int prix_vente, int idVendeur , User user) {
 		super();
 		this.image = image;
 		this.article = article;
 		this.dateFin = dateFin;
 		this.prix_vente = prix_vente;
 		this.idVendeur = idVendeur;
+		this.user = user;
+		//this.enchere = enchere;
 	}
 
 
@@ -187,6 +191,12 @@ public class Article {
 
 	public void setImage(String image) {
 		this.image = image;
+	}
+
+
+	public void setEnchere(Enchere enchere2) {
+		this.enchere = enchere2;
+		
 	}
 	
 	

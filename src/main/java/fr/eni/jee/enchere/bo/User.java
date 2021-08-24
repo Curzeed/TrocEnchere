@@ -49,6 +49,23 @@ public class User {
 
 
 	public User(int id, String pseudo, String nom, String prenom, String email, String telephone, String rue,
+			int codePostal, String ville, int credit, byte administrateur) {
+		super();
+		this.id = id;
+		this.pseudo = pseudo;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = email;
+		this.telephone = telephone;
+		this.rue = rue;
+		this.codePostal = codePostal;
+		this.ville = ville;
+		this.credit = credit;
+		this.administrateur = administrateur;
+	}
+
+
+	public User(int id, String pseudo, String nom, String prenom, String email, String telephone, String rue,
 			int codePostal, String ville, String mdp, int credit, byte administrateur) {
 		this.id = id;
 		this.pseudo = pseudo;
