@@ -1,0 +1,98 @@
+@charset "UTF-8";
+
+/*
+author : Charnet Valentin
+description : CSS PageAccueil
+Date last update : 23/08/21
+*/
+div.HeaderAccueil{
+	flex-direction: row;
+	display: flex;
+	flex-grow: 1;
+	flex: none;
+	margin: 0 auto;
+	align-self: auto;
+	background-color:#A1A1A1;
+	align-items: center;
+	position:relative;
+
+}
+img{
+	display: flex;
+	justify-content: flex-start;
+	height : 5%;
+	width: 7.5%;
+}
+div.middlestyle{
+	flex-grow: 5;
+	display: flex;
+	flex-direction: row;
+	align-content: center;
+	align-items: center;
+	justify-content: space-between;
+	position: relative;
+	
+}
+a.button-home{
+	display: flex;
+	margin-left : 10px;
+	margin-right : 10px;
+	text-decoration : none;
+	font-size: 150%;
+	font-family : papyrus;
+	background-color: #203F7B;
+	color: white;
+	border: solid;
+	border-color : #203F7B;
+	border-radius: 5px;
+	border-width: 2px;
+	height: auto;
+	justify-content: flex-start;
+}
+h1.titreSite{
+	flex-grow: 2;
+	display : flex;
+	font-size: 200%;
+	font-family : Courier;
+	color: white;
+	align-content: center;
+	margin: 0 auto;
+	width: auto;
+	height: auto;
+	text-align: center;
+	justify-content: center;
+}
+
+div.offline-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  height: auto;
+}
+
+a.button-login{
+	display: flex;
+	margin-right : 10px;
+	font-size: 150%;
+	font-family : papyrus;
+	background-color: #203F7B;
+	color: white;
+	text-decoration : none;
+	border: solid;
+	border-color : #203F7B;
+	border-radius: 5px;
+	border-width: 2px;
+}
+a.button-signup{
+	display: flex;
+	margin-right : 10px;
+	font-size: 150%;
+	font-family : papyrus;
+	background-color: #203F7B;
+	color: white;
+	text-decoration : none;
+	border: solid;
+	border-color : #203F7B;
+	border-radius: 5px;
+	border-width: 2px;
+}

@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="css/styleListeEnchere.css"/>
 <title>Liste des enchères</title>
 </head>
 <body>
