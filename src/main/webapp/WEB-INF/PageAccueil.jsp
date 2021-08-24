@@ -5,13 +5,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="css/styleAccueil.css" />
+<link rel="stylesheet" href="css/stylePageAccueil.css" />
 <title>Accueil</title>
 </head>
 <body>
 <header>
-<c:if test="${!empty sessionScope.utilisateur}">
-   <div>
+<div class="HeaderAccueil">
+	<img src="pictures/logoENI_enchere.png" alt="LogoENI_Enchere">
+	<div class="middlestyle">
+	<a class="button-home" href="./Accueil">Accueil</a>
+	<h1 class="titreSite">ENI-ENCHERES</h1>
+	<c:if test="${!empty sessionScope.utilisateur}">
+	   <div class="online_buttons">
+	   
 	<p>Vous êtes connectés au nom de : ${sessionScope.utilisateur.prenom} ${sessionScope.utilisateur.nom} </p>
 	<a href="./Deconnexion"> Déconnexion </a>
 	<a href="./MonProfil"> Gérer mon profil </a>
@@ -22,11 +28,13 @@
 	
 	<c:if test="${empty sessionScope.utilisateur}">
 		<div class="offline-buttons">
-				<a href="./Login">login</a><br />
-				<a href="./Inscription">Inscription</a>
+				<a class= "button-login" href="./Login">Se connecter</a><br/>
+				<a class= "button-signup" href="./Inscription">S'incrire</a>
 			
 		</div>
 	</c:if>
+	</div>
+</div>
 </header>
 
 </body>

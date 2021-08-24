@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+/*
+author : Charnet Valentin
+description : CSS PageListeEnchere
+Date last update : 23/08/21
+*/
+
+
+h1{
+	display : flex;
+	align-content: center;
+	margin: 0 auto;
+	width: auto;
+	height: auto;
+	text-align: center;
+	justify-content: center;
+}

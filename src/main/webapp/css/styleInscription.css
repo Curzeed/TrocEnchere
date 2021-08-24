@@ -1,0 +1,106 @@
+@charset "UTF-8";
+
+/*
+author : Charnet Valentin
+description : CSS PageInscription
+Date last update : 24/08/21
+*/
+
+h1{
+	flex-grow: 2;
+	display : flex;
+	font-size: 200%;
+	font-family : Courier;
+	color: black;
+	align-content: center;
+	margin-top: 100px;
+	width: auto;
+	height: auto;
+	text-align: center;
+	justify-content: center;
+}
+form{
+	display: block;
+	align-content: center;
+	text-align: center;
+	justify-content: center;
+}
+div.cadreWriteInscription{
+	display: table;
+	flex-direction: column;
+	justify-content: space-between;
+}
+div.pseudo{
+	display: block;
+	flex-direction: row;
+	justify-content: space-between;
+}
+div.mdp{
+	display: block;
+	flex-direction: row;
+	justify-content: space-between;
+}
+div.surname{
+	display: block;
+	flex-direction: row;
+	justify-content: space-between;
+}
+div.firstname{
+	display: block;
+	flex-direction: row;
+	justify-content: space-between;
+}
+div.email{
+	display: block;
+	flex-direction: row;
+	justify-content: space-between;
+}
+div.phone{
+	display: block;
+	flex-direction: row;
+	justify-content: space-between;
+}
+div.adress{
+	display: block;
+	flex-direction: row;
+	justify-content: space-between;
+}
+div.postalCode{
+	display: block;
+	flex-direction: row;
+	justify-content: space-between;
+}
+div.Town{
+	display: block;
+	flex-direction: row;
+	justify-content: space-between;
+}
+button.createButton{
+	text-decoration : none;
+	font-size: 100%;
+	font-family : papyrus;
+	background-color: #203F7B;
+	color: white;
+	border: solid;
+	border-color : #203F7B;
+	border-radius: 5px;
+	border-width: 2px;
+	height: auto;
+	cursor: pointer;
+}
+a.cancelButton{
+	text-decoration : none;
+	font-size: 100%;
+	font-family : papyrus;
+	background-color: #203F7B;
+	color: white;
+	border: solid;
+	border-color : #203F7B;
+	border-radius: 5px;
+	border-width: 2px;
+	height: auto;
+	cursor: pointer;
+}
+div.errorMessage{
+	display: flex;
+}
