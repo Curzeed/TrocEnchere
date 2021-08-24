@@ -11,7 +11,7 @@ import fr.eni.jee.enchere.dal.ConnectionProvider;
 
 public class JDBCImplObjectDAO {
 	private static String SQL_MODIFY_USER = "UPDATE UTILISATEURS SET pseudo=?,nom=?,prenom=?,email=?,telephone=?,rue=?,code_postal=?,ville=?,mot_de_passe=? WHERE no_utilisateur=?;";
-	private static String SQL_VERIFLOGIN = "SELECT * FROM UTILISATEURS WHERE pseudo=? OR email=? AND mot_de_passe=?;"; 
+	private static String SQL_VERIFLOGIN = "SELECT * FROM UTILISATEURS WHERE pseudo=? AND mot_de_passe=? OR email=?;"; 
 	private static String SQL_NEW_USER = "INSERT INTO UTILISATEURS (pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, credit, administrateur) VALUES (?,?,?,?,?,?,?,?,?,?,0);";
 	
 	public User validerConnexion(String pseudo, String mdp) throws DALException{
@@ -21,8 +21,8 @@ public class JDBCImplObjectDAO {
 			
 			PreparedStatement pS = connection.prepareStatement(SQL_VERIFLOGIN);
 			pS.setString(1, pseudo);
-			pS.setString(2, pseudo);
-			pS.setString(3, mdp);
+			pS.setString(3, pseudo);
+			pS.setString(2, mdp);
 			ResultSet rs = pS.executeQuery();
 			if (rs.next()) {
 				int id = rs.getInt("no_utilisateur");

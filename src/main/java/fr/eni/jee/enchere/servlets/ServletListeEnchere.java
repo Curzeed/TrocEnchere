@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import fr.eni.jee.enchere.bll.ArticleManager;
 import fr.eni.jee.enchere.bll.BLLException;
@@ -33,7 +34,8 @@ public class ServletListeEnchere extends HttpServlet {
 		List<Categorie> listeCategorie = am.selectCategorie();
 		request.setAttribute("listcategory", listeCategorie);
 		List<Article> listePrint = em.selectEncheres();
-		request.setAttribute("encheres", listePrint);
+		HttpSession session = request.getSession();
+		session.setAttribute("encheres", listePrint);
 		request.getRequestDispatcher("/WEB-INF/ListeEnchere.jsp").forward(request, response);
 		} catch (BLLException e1) {
 		e1.printStackTrace();

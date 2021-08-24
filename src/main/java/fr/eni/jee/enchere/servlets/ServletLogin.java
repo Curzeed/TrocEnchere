@@ -40,7 +40,7 @@ public class ServletLogin extends HttpServlet {
 			if(user != null ) {
 				 HttpSession session = request.getSession();
 				 session.setAttribute("utilisateur", user);
-				 
+		 
 				 if(souvenir!=null) {
 					 	Cookie ck = new Cookie("pseudo",name);
 						ck.setMaxAge(-1);
@@ -52,7 +52,7 @@ public class ServletLogin extends HttpServlet {
 						*/
 						
 					 }
-				 
+
 				 request.getRequestDispatcher("/WEB-INF/ListeEnchere.jsp").forward(request, response);
 			}else {
 				 request.setAttribute("erreur",erreur);
