@@ -30,8 +30,8 @@ public class ServletDetailArticle extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			Article  article = (Article)request.getSession().getAttribute("encheres");
-			System.out.println(article.getArticle());
+			
+			
 			request.getRequestDispatcher("/WEB-INF/PageArticle.jsp").forward(request, response);
 		}catch (ServletException | IOException e ){
 			e.printStackTrace();

@@ -37,7 +37,7 @@ public class ServletLogin extends HttpServlet {
 			if(user != null ) {
 				 HttpSession session = request.getSession();
 				 session.setAttribute("utilisateur", user);
-				 request.getRequestDispatcher("/WEB-INF/ListeEnchere.jsp").forward(request, response);
+				 request.getRequestDispatcher("/ListeEnchere").forward(request, response);
 			}else {
 				 request.setAttribute("erreur",erreur);
 				 request.getRequestDispatcher("/WEB-INF/PageLogin.jsp").forward(request, response);
