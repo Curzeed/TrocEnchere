@@ -11,26 +11,34 @@ import javax.servlet.http.HttpServletResponse;
 
 import fr.eni.jee.enchere.bll.ArticleManager;
 import fr.eni.jee.enchere.bll.BLLException;
+import fr.eni.jee.enchere.bll.EnchereManager;
+import fr.eni.jee.enchere.bo.Article;
 import fr.eni.jee.enchere.bo.Categorie;
+import fr.eni.jee.enchere.bo.Enchere;
 
 
 @WebServlet("/ListeEnchere")
 public class ServletListeEnchere extends HttpServlet {
 
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
 	ArticleManager am = new ArticleManager();
+	EnchereManager em = new EnchereManager();
 	try {
 		List<Categorie> listeCategorie = am.selectCategorie();
-		request.setAttribute("category", listeCategorie);
-		request.getSession();
-	} catch (BLLException e1) {
-		// TODO Auto-generated catch block
+		request.setAttribute("listcategory", listeCategorie);
+		List<Article> listePrint = em.selectEncheres();
+		request.setAttribute("encheres", listePrint);
+		request.getRequestDispatcher("/WEB-INF/ListeEnchere.jsp").forward(request, response);
+		} catch (BLLException e1) {
 		e1.printStackTrace();
-	}
-	request.getRequestDispatcher("/WEB-INF/ListeEnchere.jsp").forward(request, response);
-	
+		
+		}
 	}
 
 

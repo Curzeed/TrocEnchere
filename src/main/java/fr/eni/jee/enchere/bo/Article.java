@@ -65,6 +65,19 @@ public class Article {
 		this.image = image;
 	}
 
+
+
+
+	public Article(String article, LocalDateTime dateFin,String image,  int prix_vente, int idVendeur) {
+		super();
+		this.image = image;
+		this.article = article;
+		this.dateFin = dateFin;
+		this.prix_vente = prix_vente;
+		this.idVendeur = idVendeur;
+	}
+
+
 	public int getIdArticle() {
 		return idArticle;
 	}

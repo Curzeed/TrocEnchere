@@ -17,6 +17,7 @@ public class Enchere {
 		this.montant_enchere = montant_enchere;
 	}
 
+	
 	public int getId_utilisateur() {
 		return id_utilisateur;
 	}

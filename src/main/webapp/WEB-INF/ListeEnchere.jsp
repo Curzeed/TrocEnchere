@@ -11,21 +11,22 @@
 	<jsp:include page="PageAccueil.jsp"></jsp:include>
 		<div>
 			<form action="./ListeEnchere" method="post">
-				<label for="categorie">Categorie :</label>
-		<select name="${category}" id="">
-			 <c:forEach items="${category}" var="category">
-                <option value="${category.no_categorie}">
-                    ${category.libelle}
-                </option>
+				<label for="categorieS">Categorie :</label>
+					<select name="categories" id="">
+			 			<c:forEach items="${listcategory}" var="category">
+                			<option value="${category.no_categorie}">
+                   				 ${category.libelle}
+                			</option>
                 
-            </c:forEach>	
-		</select><br> 
+            			</c:forEach>	
+					</select>
+					<br> 
 				
 				<c:if test="${!empty sessionScope.utilisateur.pseudo}">
 				<fieldset> 
 					<input type="radio" id="achats" name="radiobutton" value="achats" >
 					<label for="achats">Achats</label><br>
-					<c:if test=""> <!-- TODO faire la condition du c:if -->
+					<c:if test=""> >
 						<input type="checkbox" id="encheresOuverte" name="encheresOuverte" value="encheresOuverte" >
 						<label for="achats">enchères ouvertes</label><br>
 						<input type="checkbox" id="mesEncheres" name="mesEncheres" value="mesEncheres" >
@@ -51,6 +52,19 @@
 				
 				<button type="submit" >Rechercher</button>
 			</form>
+	    </div>
+	    <div>
+	    	<p> Enchères : </p>
+	    		<c:forEach items="${encheres}" var="liste">
+	    			<article> 
+	    			${liste.article}
+	    			${liste.prix_vente}
+	    			<img src="/.${liste.image}" alt="" />
+	    			${liste.dateFin}
+	    			
+	    			</article>
+	    		
+	    		</c:forEach>
 	    </div>
 </body>
 </html>

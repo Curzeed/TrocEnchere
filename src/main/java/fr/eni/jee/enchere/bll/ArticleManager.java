@@ -6,6 +6,7 @@ import java.util.List;
 
 import fr.eni.jee.enchere.bo.Article;
 import fr.eni.jee.enchere.bo.Categorie;
+import fr.eni.jee.enchere.bo.Enchere;
 import fr.eni.jee.enchere.dal.DALException;
 import fr.eni.jee.enchere.dal.JDBCImlpArticleDAO;
 
@@ -15,7 +16,7 @@ public class ArticleManager {
 
 	public Article addArticle( String article, String description, LocalDateTime dateDebut, 
 			LocalDateTime dateFin, int prix, int no_utilisateur, int no_categorie, String etat, String image )throws BLLException{
-		Article nouveauArticle;
+			Article nouveauArticle;
 		
 		try {
 				nouveauArticle = new Article(article, description, dateDebut, dateFin, prix, no_utilisateur, no_categorie, etat, image);
@@ -26,6 +27,10 @@ public class ArticleManager {
 			}return nouveauArticle;
 		
 	}
+	public void newEnchere(int no_utilisateur, int no_article, LocalDateTime date_enchere, int montant_enchere) {
+		
+	}
+	
 	
 	public List<Categorie> selectCategorie() throws BLLException {
 		List<Categorie> categorieList = null;
