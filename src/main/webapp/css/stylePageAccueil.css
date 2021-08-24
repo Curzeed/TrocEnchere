@@ -96,3 +96,65 @@ a.button-signup{
 	border-radius: 5px;
 	border-width: 2px;
 }
+div.online-buttons{
+	display: flex;
+  	flex-direction: row;
+  	justify-content: flex-end;
+  	height: auto;
+}
+p.messageConnected{
+	display: flex;
+	margin-right : 10px;
+	font-size: 100%;
+	font-family : papyrus;
+	background-color: #203F7B;
+	color: white;
+	text-decoration : none;
+	border: solid;
+	border-color : #203F7B;
+	border-radius: 5px;
+	border-width: 2px;
+}
+div.little-buttons{
+	display: flex;
+	flex-direction: row;
+}
+a.button-disconnect{
+	display: flex;
+	margin-right : 10px;
+	font-size: 100%;
+	font-family : papyrus;
+	background-color: #203F7B;
+	color: white;
+	text-decoration : none;
+	border: solid;
+	border-color : #203F7B;
+	border-radius: 5px;
+	border-width: 2px;
+}
+a.button-myProfil{
+	display: flex;
+	margin-right : 10px;
+	font-size: 100%;
+	font-family : papyrus;
+	background-color: #203F7B;
+	color: white;
+	text-decoration : none;
+	border: solid;
+	border-color : #203F7B;
+	border-radius: 5px;
+	border-width: 2px;
+}
+a.button-sellAnArcticle{
+	display: flex;
+	margin-right : 10px;
+	font-size: 100%;
+	font-family : papyrus;
+	background-color: #203F7B;
+	color: white;
+	text-decoration : none;
+	border: solid;
+	border-color : #203F7B;
+	border-radius: 5px;
+	border-width: 2px;
+}

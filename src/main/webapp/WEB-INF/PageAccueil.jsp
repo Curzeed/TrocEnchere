@@ -16,20 +16,21 @@
 	<a class="button-home" href="./Accueil">Accueil</a>
 	<h1 class="titreSite">ENI-ENCHERES</h1>
 	<c:if test="${!empty sessionScope.utilisateur}">
-	   <div class="online_buttons">
-	   
-	<p>Vous êtes connectés au nom de : ${sessionScope.utilisateur.prenom} ${sessionScope.utilisateur.nom} </p>
-	<a href="./Deconnexion"> Déconnexion </a>
-	<a href="./MonProfil"> Gérer mon profil </a>
-	<a href="./venteEnchere"> Vendre un article</a>
 	
+	<div class="online_buttons"> 
+		<p class="messageConnected">Vous êtes connectés au nom de : ${sessionScope.utilisateur.prenom} ${sessionScope.utilisateur.nom} </p>
+		<div class="little-buttons">
+			<a class="button-disconnect" href="./Deconnexion"> Déconnexion </a>
+			<a class="button-myProfil"href="./MonProfil"> Gérer mon profil </a>
+			<a class="button-sellAnArcticle" href="./venteEnchere"> Vendre un article</a>
+		</div>
    </div>
 </c:if>
 	
 	<c:if test="${empty sessionScope.utilisateur}">
 		<div class="offline-buttons">
-				<a class= "button-login" href="./Login">Se connecter</a><br/>
-				<a class= "button-signup" href="./Inscription">S'incrire</a>
+			<a class= "button-login" href="./Login">Se connecter</a><br/>
+			<a class= "button-signup" href="./Inscription">S'incrire</a>
 			
 		</div>
 	</c:if>
