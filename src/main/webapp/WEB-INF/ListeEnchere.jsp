@@ -56,14 +56,15 @@
 	    <div>
 	    	<p> Enchères : </p>
 	    		<c:forEach items="${encheres}" var="liste">
-	    			<article> 
-	    			${liste.article}
-	    			${liste.prix_vente}
-	    			<img src="/.${liste.image}" alt="" />
-	    			${liste.dateFin}
-	    			
-	    			</article>
-	    		
+	    			<fieldset>
+	    				<article> 
+	    					<a href="./">${liste.article}</a>
+	    					${liste.prix_vente}
+	    					<img src="${liste.image}" alt="" />
+	    					${liste.dateFin}
+	    					<a href="./">${liste.idVendeur}</a>
+	    				</article>
+	    			</fieldset>	    		
 	    		</c:forEach>
 	    </div>
 </body>
