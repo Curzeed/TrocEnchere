@@ -9,6 +9,7 @@
 <title>Login</title>
 </head>
 <body>
+
 	<div class="HeaderLogin">
 		<img src="pictures/logoENI_enchere.png" alt="LogoENI_Enchere">
 		<a class="button-home" href="./Accueil">Accueil</a>
@@ -46,5 +47,22 @@
 			<a class="createAccount" href="./Inscription">Créer un compte</a>
 			
 		</form>
+
+<form action="./Login" method="post">
+	<label for="pseudo" class="labelPseudo">Pseudo ou E-mail :</label>
+	<input type="text" name="pseudo" class="inputPseudo" value="${cookie.pseudo.value }" >
+	<br />
+	<label for="motdepasse" class="labelmdp">Mot de passe : </label>
+	<input type="password" class="inputmdp" name="motdepasse"  >
+	<c:if test="${!empty erreur}">
+		<p class="erreurmsg" style="color : red;">${erreur}</p>
+	</c:if>
+	<br />
+	<button type="submit">Se connecter</button>
+	
+	<label for="souvenir" class="labelsouvenir">   Se souvenir de moi</label>
+	<input type="checkbox" name="souvenir">
+
+</form>
 </body>
 </html>

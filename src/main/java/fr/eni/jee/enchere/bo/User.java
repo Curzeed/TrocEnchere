@@ -84,6 +84,12 @@ public class User {
 
 
 
+	public User(int int1, String string, String string2, String string3, String string4, String string5, String string6,
+			int int2, String string7, String string8) {
+		// TODO Auto-generated constructor stub (pour retrouver un user)
+	}
+
+
 	public Integer getId() {
 		return id;
 	}

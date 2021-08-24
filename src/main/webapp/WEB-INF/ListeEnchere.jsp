@@ -24,31 +24,122 @@
 					<br> 
 				
 				<c:if test="${!empty sessionScope.utilisateur.pseudo}">
-				<fieldset> 
-					<input type="radio" id="achats" name="radiobutton" value="achats" >
-					<label for="achats">Achats</label><br>
-					<c:if test=""> >
-						<input type="checkbox" id="encheresOuverte" name="encheresOuverte" value="encheresOuverte" >
-						<label for="achats">enchères ouvertes</label><br>
-						<input type="checkbox" id="mesEncheres" name="mesEncheres" value="mesEncheres" >
-						<label for="achats">mes enchères</label><br>
-						<input type="checkbox" id="encheresRemporté" name="encheresRemporté" value="encheresRemporté" >
-						<label for="achats">mes enchères remportées</label><br>	
-					</c:if>
-				</fieldset>
-				<fieldset>
-					
-						<input type="radio" id="ventes" name="radiobutton" value="ventes">
-						<label for="ventes">Mes ventes</label>
-					<c:if test="${!empty ventes}">
-						<input type="checkbox" id="ventesEnCours" name="ventesEnCours" value="ventesEnCours" >
-						<label for="ventes">mes ventes en cours</label><br>
-						<input type="checkbox" id="ventesNomDebutées" name="ventesNomDebutées" value="ventesNomDebutées" >
-						<label for="ventes">ventes nom debutées</label><br>
-						<input type="checkbox" id="ventesTerminées" name="ventesTerminées" value="ventesTerminées" >
-						<label for="ventes">ventes terminées</label><br>
-					</c:if>
-				</fieldset>
+				 
+					<div class="form-check">
+		<label class="form-check-label"> <input type="radio"
+			class="form-check-input" name="type-encheres" value="achats"
+			id="achats">Achats
+		</label>
+	</div>
+	<div class="form-group">
+		<div class="form-check">
+			<label class="form-check-label"> <input type="checkbox"
+				class="form-check-input" name="encheres"
+				value="ouvertes" id="ouvertes">Enchères ouvertes
+			</label>
+		</div>
+		<div class="form-check">
+			<label class="form-check-label"> <input type="checkbox"
+				class="form-check-input"
+				name="encheres" value="encours" id="encours">Mes enchères en cours
+			</label>
+		</div>
+		<div class="form-check">
+			<label class="form-check-label"> <input type="checkbox"
+				class="form-check-input"
+				name="encheres" value="remportees" id="remportees">Mes enchères
+				remportées
+			</label>
+		</div>
+	</div>
+	<div class="form-check">
+		<label class="form-check-label"> <input type="radio"
+			class="form-check-input" name="type-encheres"
+			value="ventes" id="ventes">Ventes
+		</label>
+	</div>
+	<div class="form-group">
+		<div class="form-check">
+			<label class="form-check-label"> <input type="checkbox"
+				class="form-check-input"
+				name="ventes" value="venteencours" id="venteencours">Mes ventes en
+				cours
+			</label>
+		</div>
+		<div class="form-check">
+			<label class="form-check-label"> <input type="checkbox"
+				class="form-check-input"
+				name="ventes" value="nondebutees" id="nondebutees">Mes ventes non
+				débutées
+			</label>
+		</div>
+		<div class="form-check">
+			<label class="form-check-label"> <input type="checkbox"
+				class="form-check-input"
+				name="ventes" value="terminees" id="terminees">Mes ventes terminées
+			</label>
+		</div>
+	</div>
+
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+	<script>
+		// Example starter JavaScript for disabling form submissions if there are invalid fields
+		(function() {
+			'use strict';
+
+			window
+					.addEventListener(
+							'load',
+							function() {
+								checkAchats();
+								checkVentes();
+								achats.addEventListener('change', function(
+										event) {
+									checkAchats();
+								}, false);
+								ventes.addEventListener('change', function(
+										event) {
+									checkVentes();
+								}, false);
+
+								function checkAchats() {
+									//id radio button achats
+									var achats = document
+											.getElementById('achats');
+									if (achats.checked) {
+										//id des checkbox
+										document.getElementById('venteencours').disabled = true;
+										document.getElementById('nondebutees').disabled = true;
+										document.getElementById('terminees').disabled = true;
+										document.getElementById('encours').disabled = false;
+										document.getElementById('ouvertes').disabled = false;
+										document.getElementById('remportees').disabled = false;
+									}
+								}
+								function checkVentes() {
+									//id radio button ventes
+									var ventes = document
+											.getElementById('ventes');
+									if (ventes.checked) {
+										//id des checkbox
+										document.getElementById('venteencours').disabled = false;
+										document.getElementById('nondebutees').disabled = false;
+										document.getElementById('terminees').disabled = false;
+										document.getElementById('encours').disabled = true;
+										document.getElementById('ouvertes').disabled = true;
+										document.getElementById('remportees').disabled = true;
+									}
+								}
+							}, false);
+		})();
+	</script>
 				</c:if>
 				
 				<button type="submit" >Rechercher</button>
@@ -57,14 +148,18 @@
 	    <div>
 	    	<p> Enchères : </p>
 	    		<c:forEach items="${encheres}" var="liste">
-	    			<article> 
-	    			${liste.article}
-	    			${liste.prix_vente}
-	    			<img src="/.${liste.image}" alt="" />
-	    			${liste.dateFin}
-	    			
-	    			</article>
-	    		
+	    				<article> 
+	    					<c:if test="${!empty sessionScope.utilisateur.pseudo}"> 
+	    					<a href="./DetailArticle">${liste.article}</a>
+	    					</c:if>
+	    					<c:if test="${empty sessionScope.utilisateur.pseudo}">
+	    					${liste.article}
+	    					</c:if>
+	    					${liste.prix_vente}
+	    					<img src="${liste.image}" alt="" />
+	    					${liste.dateFin}
+	    					<a href="./">${liste.idVendeur}</a>
+	    				</article>    		
 	    		</c:forEach>
 	    </div>
 </body>
