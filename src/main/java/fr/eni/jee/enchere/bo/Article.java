@@ -15,8 +15,8 @@ public class Article {
 	private int categorie;
 	private String etat = "CR";
 	private String image;
-	private User user;
-	private Enchere enchere;
+	public User user;
+	public Enchere enchere;
 	
 	
 	
