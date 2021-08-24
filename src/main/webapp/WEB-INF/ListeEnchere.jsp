@@ -56,15 +56,18 @@
 	    <div>
 	    	<p> Enchères : </p>
 	    		<c:forEach items="${encheres}" var="liste">
-	    			<fieldset>
 	    				<article> 
-	    					<a href="./">${liste.article}</a>
+	    					<c:if test="${!empty sessionScope.utilisateur.pseudo}"> 
+	    					<a href="./DetailArticle">${liste.article}</a>
+	    					</c:if>
+	    					<c:if test="${empty sessionScope.utilisateur.pseudo}">
+	    					${liste.article}
+	    					</c:if>
 	    					${liste.prix_vente}
 	    					<img src="${liste.image}" alt="" />
 	    					${liste.dateFin}
 	    					<a href="./">${liste.idVendeur}</a>
-	    				</article>
-	    			</fieldset>	    		
+	    				</article>    		
 	    		</c:forEach>
 	    </div>
 </body>
