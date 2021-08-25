@@ -15,31 +15,31 @@
     		
     		<p>${erreurpseudo}</p>
     		<label for="pseudo">Pseudo :</label>
-			<input type="text" name="pseudo" placeholder="${utilisateur.pseudo}" required/>
+			<input type="text" name="pseudo" placeholder="${utilisateur.pseudo}" />
 			
 			<label for="mdp">Mot de passe :</label>
-			<input type="password" name="mdp" placeholder="Nouveau mot de passe" required/>
+			<input type="password" name="mdp" placeholder="Nouveau mot de passe" />
 			<p>${erreurnom}</p>
 			<label for="nom">Nom :</label>
-			<input type="text" name="nom" placeholder="${utilisateur.nom}" required/>
+			<input type="text" name="nom" placeholder="${utilisateur.nom}" />
 			<p>${erreurprenom}</p>
 			<label for="prenom">Prenom :</label>
-			<input type="text" name="prenom" placeholder="${utilisateur.prenom}" required/>
+			<input type="text" name="prenom" placeholder="${utilisateur.prenom}" />
 			<p>${erreuremail}</p>
 			<label for="email">Email :</label>
-			<input type="email" name="email" placeholder="${utilisateur.email}" required />
+			<input type="email" name="email" placeholder="${utilisateur.email}"  />
 
 			<label for="tel">n°de téléphone :</label>
-			<input type="number" name="tel" placeholder="${utilisateur.telephone}" required maxlength="15"/>
+			<input type="number" name="tel" placeholder="${utilisateur.telephone}"  maxlength="15"/>
 
 			<label for="rue">Adresse</label>
-			<input type="text" name="rue" placeholder="${utilisateur.rue}" required/>
+			<input type="text" name="rue" placeholder="${utilisateur.rue}" />
 
 			<label for="cp">Code postal</label>
-			<input type="text" name="cp" placeholder="${utilisateur.codePostal}" required maxlength="5"/>
+			<input type="text" name="cp" placeholder="${utilisateur.codePostal}"  maxlength="5"/>
 			<p>${erreurville}</p>
 			<label for="ville">Ville</label>
-			<input type="text" name="ville" placeholder="${utilisateur.ville}" required />
+			<input type="text" name="ville" placeholder="${utilisateur.ville}"  />
 
 			<button type="submit">Modifier</button>
     </form>
