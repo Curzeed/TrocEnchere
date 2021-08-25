@@ -158,7 +158,7 @@
 	    					${liste.prix_vente}
 	    					<img src="${liste.image}" alt="" />
 	    					${liste.dateFin}
-	    					<%-- <a href="./ProfilUtilisateur?=${liste.article.idVendeur}">${liste.user.pseudo}</a> --%>
+	    					<a href="./ProfilUtilisateur?no_utilisateur=${liste.idVendeur}">${liste.idVendeur}</a>
 	    				</article>    		
 	    		</c:forEach>
 	    </div>

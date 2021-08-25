@@ -18,21 +18,12 @@ import fr.eni.jee.enchere.bo.Article;
 @WebServlet("/DetailArticle")
 public class ServletDetailArticle extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ServletDetailArticle() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+  
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<Article> listeArticle = (List<Article>) request.getSession().getAttribute("encheres");
 		
+		request.getRequestDispatcher("/WEB-INF/PageArticle.jsp").forward(request, response);
 	}
 
 	/**

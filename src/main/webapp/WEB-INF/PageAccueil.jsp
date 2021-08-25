@@ -13,7 +13,7 @@
 <div class="HeaderAccueil">
 	<img src="pictures/logoENI_enchere.png" alt="LogoENI_Enchere">
 	<div class="middlestyle">
-	<a class="button-home" href="./Accueil">Accueil</a>
+	<a class="button-home" href="./ListeEnchere">Accueil</a>
 	<h1 class="titreSite">ENI-ENCHERES</h1>
 	<c:if test="${!empty sessionScope.utilisateur}">
 	

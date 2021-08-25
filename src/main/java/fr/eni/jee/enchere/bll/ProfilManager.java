@@ -1,6 +1,7 @@
 package fr.eni.jee.enchere.bll;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import fr.eni.jee.enchere.bo.User;
@@ -17,17 +18,17 @@ public class ProfilManager {
 			e.printStackTrace();
 		}
 	}
-	private JDBCImplProfilDAO ObjectDAO1 = new JDBCImplProfilDAO();
 	
 	
-	public List<User> afficherUser(int no_utilisateur) {
-		List<User> newuser = null;
-		
+	
+	public List<User> afficherUser(int no_utilisateur) throws BLLException {
+		List<User> newuser = new ArrayList<User>();
 		try {
-			newuser = ObjectDAO1.afficherUser(no_utilisateur);
+			newuser = ObjectDAO.afficherUser(no_utilisateur);
 			
 		}catch(DALException | SQLException e) {
 			e.printStackTrace();
+			throw new BLLException("Erreur dans le ProfilManager + " + e.getMessage());
 		}
 		return newuser;
 	}
