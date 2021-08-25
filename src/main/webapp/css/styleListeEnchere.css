@@ -7,7 +7,32 @@ Date last update : 23/08/21
 */
 
 
-h1{
+h1.titleListEnch{
+	display : flex;
+	align-content: center;
+	margin: 0 auto;
+	width: auto;
+	height: auto;
+	text-align: center;
+	justify-content: center;
+}
+div.categories{
+	display: flex;
+}
+button.search{
+	text-decoration : none;
+	font-size: 100%;
+	font-family : papyrus;
+	background-color: #203F7B;
+	color: white;
+	border: solid;
+	border-color : #203F7B;
+	border-radius: 5px;
+	border-width: 2px;
+	height: auto;
+	cursor: pointer;
+}
+h2.titleEnch{
 	display : flex;
 	align-content: center;
 	margin: 0 auto;

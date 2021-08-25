@@ -10,8 +10,10 @@
 </head>
 <body>
 	<jsp:include page="PageAccueil.jsp"></jsp:include>
+	<h1 class="titleListEnch">Liste des enchères :</h1>
 		<div>
 			<form action="./ListeEnchere" method="post">
+			<div class="categories">
 				<label for="categorieS">Categorie :</label>
 					<select name="categories" id="">
 			 			<c:forEach items="${listcategory}" var="category">
@@ -21,11 +23,12 @@
                 
             			</c:forEach>	
 					</select>
-					<br> 
+			</div>
+			<br> 
 				
-				<c:if test="${!empty sessionScope.utilisateur.pseudo}">
+			<c:if test="${!empty sessionScope.utilisateur.pseudo}">
 				 
-					<div class="form-check">
+			<div class="form-check">
 		<label class="form-check-label"> <input type="radio"
 			class="form-check-input" name="type-encheres" value="achats"
 			id="achats">Achats
@@ -142,11 +145,11 @@
 	</script>
 				</c:if>
 				
-				<button type="submit" >Rechercher</button>
+				<button class="search" type="submit" >Rechercher</button>
 			</form>
 	    </div>
 	    <div>
-	    	<p> Enchères : </p>
+	    	<h2 class="titleEnch"> Enchères : </h2>
 	    		<c:forEach items="${encheres}" var="liste">
 	    				<article> 
 	    					<c:if test="${!empty sessionScope.utilisateur.pseudo}"> 

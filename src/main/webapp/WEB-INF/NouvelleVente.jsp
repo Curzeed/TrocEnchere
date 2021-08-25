@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Nouvelle Enchère</title>
 </head>
 <body>
 <jsp:include page="PageAccueil.jsp"></jsp:include>
