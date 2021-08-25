@@ -30,6 +30,7 @@
 		</select><br> 
 		<label for="photo">Photo de l'article</label>
 		<input type="file" id="pictureFile" name="pictureFile" accept="image/png, image/jpeg" onchange="PreviewImage();"/>
+			<form method="post" action="${pageContext.request.contextPath}/result" enctype="multipart/form-data"> 
 			<img id="uploadPreview" style="width: 100px; height: 100px;"/> 
 			<script type="text/javascript"> 
 			function PreviewImage() { 
@@ -39,6 +40,7 @@
 			document.getElementById("uploadPreview").src = oFREvent.target.result; };}; 
 			</script> <br>
 			
+			</form>
 		<label for="miseAPrix">Mise à prix : </label> 
 		<input type="number"name="prix" min="0" max="10000"><br> 
 		<label for="DebutEnchere">Début de l'enchère :</label> 

@@ -12,14 +12,14 @@
 <h1>Détail vente : </h1>
 
 <img src="" alt="" />
-<c:forEach items="encheres"  var="t">
-<p>Description : ${encheres.t.description}</p>
+<c:forEach items="encheres"  var="article">
+<p>Description : ${article.description}</p>
 
-<p>Catégorie : </p>
+<p>Catégorie : article.</p>
 
 <p>Meilleure offre : </p>
 
-<p> Mise à prix : </p>
+<p> Mise à prix : article.</p>
 
 <p> Fin de l'enchère : </p>
 

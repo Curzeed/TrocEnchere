@@ -19,6 +19,7 @@
 	<div class="pseudo">
 		<label for="pseudo">Pseudo :</label>
 		<input type="text" name="pseudo" placeholder="Votre pseudo" required/>
+		<p> ${erreurpseudo}</p>
 	</div>
 	<br>
 	<div class="mdp">

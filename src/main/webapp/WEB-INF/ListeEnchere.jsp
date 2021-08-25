@@ -156,9 +156,25 @@
 	    					${liste.article}
 	    					</c:if>
 	    					${liste.prix_vente}
-	    					<img src="${liste.image}" alt="" />
+	    					<c:choose> 
+
+								<c:when test="${!empty liste}" > 
+								
+								<p></p> 
+								
+								<img src="${pageContext.request.contextPath}/uploads/${liste.image}" alt="${liste.article}" /> 
+								
+								</c:when> 
+								
+								<c:otherwise> 
+								
+								<img src="${pageContext.request.contextPath}/images/photo.svg" alt="pas de photo" /> 
+								
+								</c:otherwise> 
+								
+								</c:choose> 
 	    					${liste.dateFin}
-	    					<a href="./ProfilUtilisateur?no_utilisateur=${liste.idVendeur}">${liste.idVendeur}</a>
+	    					<a href="./ProfilUtilisateur?no_utilisateur=${liste.idVendeur}">${liste.user.pseudo}</a>
 	    				</article>    		
 	    		</c:forEach>
 	    </div>

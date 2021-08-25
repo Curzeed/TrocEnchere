@@ -10,7 +10,7 @@
 <body>
 <fieldset>
 		
-			<c:forEach  items="vendeur" var="infos">
+			<c:forEach  items="${vendeur}" var="infos">
 				<p>Pseudo : ${infos.pseudo}</p>
 				<br />
 				<p >Nom : ${infos.nom} </p>
@@ -23,11 +23,10 @@
 				<br />
 				<p >Rue : ${infos.rue} </p>
 				<br />
-				<p >Code Postal : ${infos.codepostal} </p>
+				<p >Code Postal : ${infos.codePostal} </p>
 				<br />
 				<p >Ville : ${infos.ville} </p>
 				<br />
-				<a href="./ModifiersonProfil">Modifier son Profil</a>
 			</c:forEach>
 		
 			<c:if test="${sessionScope.utilisateur.pseudo}">

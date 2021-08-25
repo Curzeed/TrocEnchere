@@ -33,6 +33,7 @@ public class ServletInscription extends HttpServlet {
         String codepostalString = request.getParameter("cp"); 
         String ville = request.getParameter("ville");
         String mdp = request.getParameter("mdp");
+        String confirmationmdp = request.getParameter("confirmationmdp");
         
         int codepostal = Integer.parseInt(codepostalString);
         if(isAlphaNumeric(pseudo) == true && isAlphaNumeric(prenom)&& isAlphaNumeric(nom) == true && validateEmail(email) == true){
@@ -61,7 +62,7 @@ public class ServletInscription extends HttpServlet {
 			request.setAttribute("erreuremail", "Caractères spéciaux dans le champ email");
 			request.getRequestDispatcher("/WEB-INF/PageInscription.jsp").forward(request, response);
 		}
-        }// TODO Faire l'email vÃ©rification 
+        } 
         
     public static boolean isAlphaNumeric(String s) {
         return s.matches("[A-Za-z0-9]+");
