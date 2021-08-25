@@ -12,8 +12,10 @@
 <h1>Détail vente : </h1>
 
 <img src="" alt="" />
+<c:forEach items="encheres"  var="article">
+<p>Description : ${article.description}</p>
 
-<p>Description : ${encheres.description}</p>
+<p>Catégorie : article.</p>
 
 <p>Catégorie : </p>
 
@@ -26,6 +28,7 @@
 <p> Retrait : </p>
 
 <p> Vendeur :</p>
+</c:forEach>
 <form action="./DetailArticle" method="post">
 	<label for="mise">Ma proposition : </label>
 	<input type="number" />

@@ -16,10 +16,28 @@ public class Article {
 	private String etat = "CR";
 	private String image;
 	public User user;
+	
+	
+	public User getUser() {
+		return user;
+	}
+
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+
+	public Enchere getEnchere() {
+		return enchere;
+	}
+
+
 	public Enchere enchere;
 	
 	
 	
+
 
 
 	public Article(String article, String description, LocalDateTime dateDebut2, LocalDateTime dateFin2, int prix, int idVendeur,

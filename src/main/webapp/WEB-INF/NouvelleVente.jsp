@@ -12,8 +12,7 @@
 <jsp:include page="PageAccueil.jsp"></jsp:include>
 <h1>Nouvelle vente </h1><br>
 
-
-	<form action="./venteEnchere" method="post">
+	<form action="${pageContext.request.contextPath}/venteEnchere" method="post" enctype="multipart/form-data">
 
 		<label for="article">Article :</label> 
 		<input type="text"name="article" required><br> 

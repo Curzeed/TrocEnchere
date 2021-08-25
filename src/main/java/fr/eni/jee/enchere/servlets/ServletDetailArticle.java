@@ -30,9 +30,10 @@ public class ServletDetailArticle extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		List<Article> listeArticle = (List<Article>) request.getSession().getAttribute("encheres");
 		
+		request.getRequestDispatcher("/WEB-INF/PageArticle.jsp").forward(request, response);
 	}
 
 	/**
