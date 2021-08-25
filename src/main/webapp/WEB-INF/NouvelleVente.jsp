@@ -13,7 +13,7 @@
 <h1>Nouvelle vente </h1><br>
 
 
-	<form action="./venteEnchere" method="post">
+	<form action="./venteEnchere" method="post" enctype="multipart/form-data">
 
 		<label for="article">Article :</label> 
 		<input type="text"name="article" required><br> 
@@ -29,7 +29,7 @@
             </c:forEach>	
 		</select><br> 
 		<label for="photo">Photo de l'article</label>
-		<input type="file" accept="image/png,image/jpeg" name="img">
+		<input type="file" id="pictureFile" name="pictureFile" accept="image/png, image/jpeg" onchange="PreviewImage();"/>
 			<img id="uploadPreview" style="width: 100px; height: 100px;"/> 
 			<script type="text/javascript"> 
 			function PreviewImage() { 
