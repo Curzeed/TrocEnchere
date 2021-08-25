@@ -65,38 +65,38 @@ public class JDBCImplObjectDAO {
 		
 		}catch (SQLException e) {
 			if (e.getMessage().contains("utilisateurs_pseudo_uq")) {
-				throw new DALException("Le pseudo est déjà utilisé");
+				throw new DALException("Le pseudo est dï¿½jï¿½ utilisï¿½");
 			}if (e.getMessage().contains("utilisateurs_email_uq")) {
-				throw new DALException("Le mail est déjà utilisé");
+				throw new DALException("Le mail est dï¿½jï¿½ utilisï¿½");
 			}
 			e.printStackTrace();
-			throw new DALException("Problème de l'inscription dans la DAL");
+			throw new DALException("Problï¿½me de l'inscription dans la DAL");
 		}
 	}
 	public void modifyUser(User utilisateur) throws DALException {
-		try {
-			Connection connection = ConnectionProvider.getConnection();
-			PreparedStatement pS = connection.prepareStatement(SQL_MODIFY_USER);
-			pS.setString(1, utilisateur.getPseudo());
-			pS.setString(2, utilisateur.getNom());
-			pS.setString(3, utilisateur.getPrenom());
-			pS.setString(4, utilisateur.getEmail());
-			pS.setString(5, utilisateur.getTelephone());
-			pS.setString(6, utilisateur.getRue());
-			pS.setInt(7, utilisateur.getCodePostal());
-			pS.setString(8, utilisateur.getVille());
-			pS.setString(9, utilisateur.getMdp());
-			pS.setInt(10, utilisateur.getId());
-			pS.executeUpdate();
-		}catch (SQLException e) {
-			e.printStackTrace();
-			if (e.getMessage().contains("utilisateurs_pseudo_uq")) {
-				e.printStackTrace();
-				throw new DALException("Le pseudo est déjà utilisé");
-			}if(e.getMessage().contains("utilisateurs_email_uq")) {
-				e.printStackTrace();
-				throw new DALException("L'email est déjà utilisée");
-			}
-		}
-	}
+        try {
+            Connection connection = ConnectionProvider.getConnection();
+            PreparedStatement pS = connection.prepareStatement(SQL_MODIFY_USER);
+            pS.setString(1, utilisateur.getPseudo());
+            pS.setString(2, utilisateur.getNom());
+            pS.setString(3, utilisateur.getPrenom());
+            pS.setString(4, utilisateur.getEmail());
+            pS.setString(5, utilisateur.getTelephone());
+            pS.setString(6, utilisateur.getRue());
+            pS.setInt(7, utilisateur.getCodePostal());
+            pS.setString(8, utilisateur.getVille());
+            pS.setString(9, utilisateur.getMdp());
+            pS.setInt(10, utilisateur.getId());
+            pS.executeUpdate();
+        }catch (SQLException e) {
+            e.printStackTrace();
+            if (e.getMessage().contains("utilisateurs_pseudo_uq")) {
+                e.printStackTrace();
+                throw new DALException("Le pseudo est dï¿½jï¿½ utilisï¿½");
+            }if(e.getMessage().contains("utilisateurs_email_uq")) {
+                e.printStackTrace();
+                throw new DALException("L'email est dÃ©jÃ  utilisï¿½e");
+            }
+        }
+    }
 }

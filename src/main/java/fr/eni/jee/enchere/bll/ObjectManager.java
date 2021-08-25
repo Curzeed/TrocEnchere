@@ -18,7 +18,7 @@ public class ObjectManager {
 		} catch (DALException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			throw new BLLException("Erreur dans la BLL (requête du Login)");
+			throw new BLLException("Erreur dans la BLL (requï¿½te du Login)");
 		}return result;
 	}
 	
@@ -43,7 +43,7 @@ public class ObjectManager {
 			ObjectDAO.modifyUser(utilisateur);
 		}catch (DALException e) {
 			e.printStackTrace();
-			throw new BLLException("Erreur dans la BLL (requête pour modifier un utilisateur");
+			throw new BLLException("Erreur dans la BLL (requï¿½te pour modifier un utilisateur");
 		}
 	}
 		   

@@ -5,43 +5,23 @@ import java.time.LocalDateTime;
 public class Article {
 	
 	private int idArticle;
-	private String article;
+	private String nomArticle;
 	private String description;
 	private LocalDateTime dateDebut;
 	private LocalDateTime dateFin;
 	private int prix;
 	private int prix_vente;
 	private int idVendeur;
-	private int categorie;
 	private String etat = "CR";
 	private String image;
 	public User user;
-	
-	
-	public User getUser() {
-		return user;
-	}
-
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-
-	public Enchere getEnchere() {
-		return enchere;
-	}
-
-
 	public Enchere enchere;
+	private int categorie;
 	
-	
-	
-
 
 	public Article(String article, String description, LocalDateTime dateDebut2, LocalDateTime dateFin2, int prix, int idVendeur,
 			int categorie, String etat, String image) {
-		this.article = article;
+		this.nomArticle = article;
 		this.description = description;
 		this.dateDebut = dateDebut2;
 		this.dateFin = dateFin2;
@@ -57,7 +37,7 @@ public class Article {
 			int prix_vente, int idVendeur, int categorie, String etat, String image) {
 		super();
 		this.idArticle = idArticle;
-		this.article = article;
+		this.nomArticle = article;
 		this.description = description;
 		this.dateDebut = dateDebut;
 		this.dateFin = dateFin;
@@ -73,7 +53,7 @@ public class Article {
 			int prix, int idVendeur, int categorie, String etat, String image) {
 		super();
 		this.idArticle = idArticle;
-		this.article = article;
+		this.nomArticle = article;
 		this.description = description;
 		this.dateDebut = dateDebut;
 		this.dateFin = dateFin;
@@ -90,12 +70,41 @@ public class Article {
 	public Article(String article, LocalDateTime dateFin,String image,  int prix_vente, int idVendeur , User user) {
 		super();
 		this.image = image;
-		this.article = article;
+		this.nomArticle = article;
 		this.dateFin = dateFin;
 		this.prix_vente = prix_vente;
 		this.idVendeur = idVendeur;
 		this.user = user;
 		//this.enchere = enchere;
+	}
+
+
+	public Article(int idArticle, String article, String description, LocalDateTime dateFin, int prix_vente,
+			int idVendeur, String image, User user, Enchere enchere) {
+		super();
+		this.idArticle = idArticle;
+		this.nomArticle = article;
+		this.description = description;
+		this.dateFin = dateFin;
+		this.prix_vente = prix_vente;
+		this.idVendeur = idVendeur;
+		this.image = image;
+		this.user = user;
+		this.enchere = enchere;
+	}
+
+
+	public Article(int idArticle, String article, String description, LocalDateTime dateFin, String image, int montant_enchere, int no_utilisateur,
+			User user) {
+		this.idArticle = idArticle;
+		this.nomArticle = article;
+		this.description = description;
+		this.dateFin = dateFin;
+		this.prix_vente = montant_enchere;
+		this.idVendeur = no_utilisateur;
+		this.image = image;
+		this.user = user;
+			
 	}
 
 
@@ -110,12 +119,12 @@ public class Article {
 
 
 	public String getArticle() {
-		return article;
+		return nomArticle;
 	}
 
 
 	public void setArticle(String article) {
-		this.article = article;
+		this.nomArticle = article;
 	}
 
 
@@ -211,10 +220,25 @@ public class Article {
 	}
 
 
-	public void setEnchere(Enchere enchere2) {
-		this.enchere = enchere2;
-		
+	public User getUser() {
+		return user;
 	}
+
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+
+	public Enchere getEnchere() {
+		return enchere;
+	}
+
+
+	public void setEnchere(Enchere enchere) {
+		this.enchere = enchere;
+	}
+
 	
 	
 	

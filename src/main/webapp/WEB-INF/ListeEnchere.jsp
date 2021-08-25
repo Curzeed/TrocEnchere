@@ -150,12 +150,12 @@
 	    		<c:forEach items="${encheres}" var="liste">
 	    				<article> 
 	    					<c:if test="${!empty sessionScope.utilisateur.pseudo}"> 
-	    					<a href="./DetailArticle">${liste.article}</a>
+	    					<a href="./DetailArticle?idArticle=${liste.idArticle}">${liste.article}</a>
 	    					</c:if>
 	    					<c:if test="${empty sessionScope.utilisateur.pseudo}">
 	    					${liste.article}
 	    					</c:if>
-	    					${liste.prix_vente}
+	    					${liste.prix}
 	    					<c:choose> 
 
 								<c:when test="${!empty liste}" > 

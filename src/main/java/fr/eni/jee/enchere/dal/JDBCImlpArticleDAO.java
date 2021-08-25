@@ -32,7 +32,7 @@ public class JDBCImlpArticleDAO {
 		pS.executeUpdate();
 		ResultSet rs = pS.getGeneratedKeys();
 		if (rs.next()) {
-			article.setIdArticle(rs.getInt(0));
+			article.setIdArticle(rs.getInt(1));
 		}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -58,7 +58,7 @@ public class JDBCImlpArticleDAO {
 	             
 	        } catch (SQLException e) {
 	            e.printStackTrace();
-	            throw new DALException("Erreur dans la récupération de la catégorie" + e.getMessage());
+	            throw new DALException("Erreur dans la rï¿½cupï¿½ration de la catï¿½gorie" + e.getMessage());
 	        }      
 	         
 	        return listCategory;

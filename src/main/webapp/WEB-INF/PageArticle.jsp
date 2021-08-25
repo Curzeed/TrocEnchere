@@ -12,21 +12,24 @@
 <h1>Détail vente : </h1>
 
 <img src="" alt="" />
-<c:forEach items="encheres"  var="article">
-<p>Description : ${article.description}</p>
 
-<p>Catégorie : article.</p>
+<p>Description : ${encheres.description}</p>
 
-<p>Meilleure offre : </p>
+<p>Catégorie : ${encheres.categorie}</p>
 
-<p> Mise à prix : article.</p>
+<p>Meilleure offre : ${encheres.enchere.montant_enchere}</p>
 
-<p> Fin de l'enchère : </p>
+<p> Mise à prix : ${encheres.prix_vente}</p>
 
-<p> Retrait : </p>
+<p> Fin de l'enchère : ${encheres.dateFin}</p>
 
-<p> Vendeur :</p>
-</c:forEach>
+<p> Retrait : ${sessionScope.utilisateur.rue} <br />
+${sessionScope.utilisateur.codePostal} <br />
+${sessionScope.utilisateur.ville}
+</p>
+
+<p> Vendeur : ${encheres.user.pseudo}</p>
+
 <form action="./DetailArticle" method="post">
 	<label for="mise">Ma proposition : </label>
 	<input type="number" />

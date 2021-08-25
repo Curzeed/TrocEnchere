@@ -27,7 +27,7 @@ public class JDBCImplEnchereDAO {
 				User user = new User(rs.getInt("no_utilisateur"), rs.getString("pseudo"), rs.getString("nom"), rs.getString("prenom"), rs.getString("prenom"), rs.getString("email"), rs.getString("telephone"), rs.getInt("code_postal"), rs.getString("rue"), rs.getString("ville"), rs.getInt("credit"), rs.getByte("administrateur"));
 				Integer montantEnchere = rs.getInt("montant_enchere");
 				montantEnchere = rs.getInt("montant_enchere");
-				Article newart = new Article(rs.getString("nom_article"),rs.getTimestamp("date_fin_enchere").toLocalDateTime(), rs.getString("image"), rs.getInt("montant_enchere"), rs.getInt("no_utilisateur"),user);
+				Article newart = new Article(rs.getInt("no_article"),rs.getString("nom_article"), rs.getString("description"),rs.getTimestamp("date_fin_enchere").toLocalDateTime(), rs.getString("image"), rs.getInt("montant_enchere"), rs.getInt("no_utilisateur"),user);
 			if (montantEnchere == null) {
 					Enchere enchere = new Enchere(rs.getInt("id_utilisateur"), rs.getInt("id_article"),rs.getTimestamp("date_enchere").toLocalDateTime(), rs.getInt("montant_enchere"));
 				  newart.setEnchere(enchere);

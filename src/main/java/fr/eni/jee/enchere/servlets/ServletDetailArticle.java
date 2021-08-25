@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import fr.eni.jee.enchere.bll.BLLException;
 import fr.eni.jee.enchere.bo.Article;
@@ -21,8 +22,9 @@ public class ServletDetailArticle extends HttpServlet {
   
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<Article> listeArticle = (List<Article>) request.getSession().getAttribute("encheres");
-		
+		HttpSession session = request.getSession();
+		session.getAttribute("encheres");
+		session.getAttribute("utilisateur");
 		request.getRequestDispatcher("/WEB-INF/PageArticle.jsp").forward(request, response);
 	}
 

@@ -52,7 +52,8 @@ public class ServletModifierSonProfil extends HttpServlet {
         		&& validateEmail(email) == true && isAlphaNumeric(ville) == true){			       	       	
         	try {
 			om.modifyManager(newUtilisateur);
-			request.getRequestDispatcher("/WEB-INF/GererProfil.jsp").forward(request, response);
+			request.getSession().setAttribute("utilisateur" ,newUtilisateur);
+			request.getRequestDispatcher("/WEB-INF/PageGererProfil.jsp").forward(request, response);
 				} catch (BLLException e) {
 					request.setAttribute("erreur", e);
 					e.printStackTrace();
