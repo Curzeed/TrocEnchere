@@ -78,7 +78,7 @@
 <br>
 <div class="errorMessage">
 	<c:if test="${!empty erreur}">	
-		 <p style="color : red;"><c:out value="${erreur}"/></p>
+		 <p style="color : red;">${erreur}</p>
 	</c:if>
 </div>
 </fieldset>

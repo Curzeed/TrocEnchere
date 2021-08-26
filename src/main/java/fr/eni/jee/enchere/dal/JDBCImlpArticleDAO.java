@@ -58,7 +58,7 @@ public class JDBCImlpArticleDAO {
 	             
 	        } catch (SQLException e) {
 	            e.printStackTrace();
-	            throw new DALException("Erreur dans la récupération de la catégorie" + e.getMessage());
+	            throw new DALException("Erreur dans la rÃ©cupÃ©ration de la catÃ©gorie" + e.getMessage());
 	        }      
 	         
 	        return listCategory;

@@ -41,38 +41,51 @@ public class ServletModifierSonProfil extends HttpServlet {
         String rue = request.getParameter("rue");
         String codepostalString = request.getParameter("cp"); 
         String ville = request.getParameter("ville");
-        String mdp = request.getParameter("mdp");	
+        String mdp = request.getParameter("mdp");
+        String newMdp = request.getParameter("newmdp");
+        String confNewMdp = request.getParameter("confNewMdp");
         
         int cp = Integer.parseInt(codepostalString);
         
-        User newUtilisateur = new User(utilisateur.getId(),pseudo, nom, prenom, email, tel, rue, cp, ville, mdp, 100, utilisateur.getAdministrateur());
+        User newUtilisateur = new User(utilisateur.getId(),pseudo, nom, prenom, email, tel, rue, cp, ville, confNewMdp, 100, utilisateur.getAdministrateur());
 		
         
-        if(isAlphaNumeric(newUtilisateur.getPseudo()) == true && isAlphaNumeric(newUtilisateur.getPrenom())&& isAlphaNumeric(newUtilisateur.getNom()) == true 
-        		&& validateEmail(email) == true && isAlphaNumeric(ville) == true){			       	       	
+        if((isAlphaNumeric(newUtilisateur.getPseudo()) == true && isAlphaNumeric(newUtilisateur.getPrenom())&& isAlphaNumeric(newUtilisateur.getNom()) == true 
+        		&& validateEmail(email) == true && isAlphaNumeric(ville) == true &&  utilisateur.getMdp().equals(newMdp) == false 
+        		&& newMdp.equals(confNewMdp) == true && mdp.equals(utilisateur.getMdp()) == true)){
+        	
         	try {
 			om.modifyManager(newUtilisateur);
-			request.getRequestDispatcher("/WEB-INF/GererProfil.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/PageModifierProfil.jsp").forward(request, response);
 				} catch (BLLException e) {
 					request.setAttribute("erreur", e);
 					e.printStackTrace();
 				}
 			}if (isAlphaNumeric(newUtilisateur.getPseudo()) == false ) {
-				request.setAttribute("erreurpseudo", "Caractères spéciaux dans le champ Pseudo");
+				request.setAttribute("erreurpseudo", "CaractÃ¨res spÃ©ciaux dans le champ Pseudo");
 				request.getRequestDispatcher("/WEB-INF/PageModifierProfil.jsp").forward(request, response);
 			}if (isAlphaNumeric(newUtilisateur.getPrenom()) == false) {
-				request.setAttribute("erreurprenom", "Caractères spéciaux dans le champ Prénom");
+				request.setAttribute("erreurprenom", "CaractÃ¨res spÃ©ciaux dans le champ PrÃ©nom");
 				request.getRequestDispatcher("/WEB-INF/PageModifierProfil.jsp").forward(request, response);
 			}if (isAlphaNumeric(newUtilisateur.getNom()) == false ) {
-				request.setAttribute("erreurnom", "Caractères spéciaux dans le champ Nom");
+				request.setAttribute("erreurnom", "CaractÃ¨res spÃ©ciaux dans le champ Nom");
 				request.getRequestDispatcher("/WEB-INF/PageModifierProfil.jsp").forward(request, response);
 			}if (isAlphaNumeric(newUtilisateur.getVille()) == false) {
-				request.setAttribute("erreurville", "Caractères spéciaux dans le champ ville");
+				request.setAttribute("erreurville", "CaractÃ¨res spÃ©ciaux dans le champ ville");
+				request.getRequestDispatcher("/WEB-INF/PageModifierProfil.jsp").forward(request, response);
+			}if ( utilisateur.getMdp().equals(newMdp) == true) {
+				request.setAttribute("erreurnvmdp", "Veuillez saisir un nouveau mot de passe");
+				request.getRequestDispatcher("/WEB-INF/PageModifierProfil.jsp").forward(request, response);
+			}if( newMdp.equals(confNewMdp) == false) {
+				request.setAttribute("erreurconfmdp", "Veuillez confirmer votre nouveau mot de passe");
+				request.getRequestDispatcher("/WEB-INF/PageModifierProfil.jsp").forward(request, response);
+			}if(mdp.equals(utilisateur.getMdp()) == false) {
+				request.setAttribute("erreurmdpactuel", "Veuillez Ã©crire votre mot de passe actuelle");
 				request.getRequestDispatcher("/WEB-INF/PageModifierProfil.jsp").forward(request, response);
 			}
 	}
 	private static boolean isAlphaNumeric(String s) {
-		return s.matches("[A-Za-z0-9]+");
+		return s.matches("^[a-zA-Z0-9 ]*$");
     }
 
 	private static final String EMAIL_PATTERN = 
