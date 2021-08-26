@@ -10,14 +10,14 @@ import java.util.List;
 import fr.eni.jee.enchere.bo.User;
 
 public class JDBCImplProfilDAO {
-	private static String SQL_DELETE = "DELETE FROM UTILISATEURS WHERE pseudo=?;";
+	private static String SQL_DELETE = "DELETE FROM UTILISATEURS WHERE no_utilisateur=?;";
 	private static String SQL_AFFICHER_PROFIL= "SELECT * FROM UTILISATEURS WHERE no_utilisateur=? ;";
 	
-	public void deleteUser(String pseudo) throws DALException, SQLException{
+	public void deleteUser(int no_utilisateur) throws DALException, SQLException{
 		try {
 		Connection connection = ConnectionProvider.getConnection();
 		PreparedStatement pS = connection.prepareStatement(SQL_DELETE);
-		pS.setString(1, pseudo);
+		pS.setInt(1, no_utilisateur);
 		pS.executeUpdate();
 		}catch(SQLException e){
 			e.printStackTrace();

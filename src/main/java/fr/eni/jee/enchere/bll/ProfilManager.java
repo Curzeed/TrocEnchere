@@ -11,9 +11,9 @@ import fr.eni.jee.enchere.dal.JDBCImplProfilDAO;
 public class ProfilManager {
 	
 	private JDBCImplProfilDAO ObjectDAO = new JDBCImplProfilDAO();
-	public void deleteUser(String pseudo) {
+	public void deleteUser(int no_utilisateur) {
 		try {
-			ObjectDAO.deleteUser(pseudo);
+			ObjectDAO.deleteUser(no_utilisateur);
 		} catch (DALException | SQLException e) {
 			e.printStackTrace();
 		}

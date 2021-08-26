@@ -1,5 +1,9 @@
 package fr.eni.jee.enchere.listeners;
 
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.SQLException;
+
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
@@ -45,16 +49,18 @@ public class ListenerEtatEnchere implements ServletContextListener {
 				public void run() {
 					// définir le traitement
 					try {
-						cstmt = ConnectionProvider.getConnection().prepareCall(
-								"[dbo].[updateArticle](?)"
-								);
+						Connection connection  = ConnectionProvider.getConnection();
 						while (!asyncTask.isInterrupted()) {
+							
 							System.out.println("Thread working every 5 mn");
-
+							CallableStatement cS = connection.prepareCall("[dbo].[updateArticle](?)");
 							Thread.sleep(TEMPS_ACTUALISATION);
 						}
 					} catch (InterruptedException e) {
 						System.out.println("Thread interrupted");
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
 					}
 				}
 			});

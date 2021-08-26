@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import fr.eni.jee.enchere.bll.ObjectManager;
 import fr.eni.jee.enchere.bll.ProfilManager;
+import fr.eni.jee.enchere.bo.User;
 
 /**
  * Servlet implementation class ServletSupprimer
@@ -20,8 +21,8 @@ public class ServletSupprimer extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ProfilManager pm = new ProfilManager();
 		
-		String pseudo = (String) request.getSession().getAttribute("pseudo");
-		pm.deleteUser(pseudo);
+		User user = (User) request.getSession().getAttribute("utilisateur");
+		pm.deleteUser(user.getId());
 		request.getSession().invalidate();
 		request.getRequestDispatcher("/WEB-INF/PageAccueil.jsp").forward(request, response);
 	}
