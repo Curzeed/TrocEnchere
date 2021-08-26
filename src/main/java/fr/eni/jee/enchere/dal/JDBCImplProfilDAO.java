@@ -10,6 +10,7 @@ import java.util.List;
 import fr.eni.jee.enchere.bo.User;
 
 public class JDBCImplProfilDAO {
+
 	private static String SQL_DELETE = "DELETE FROM UTILISATEURS WHERE no_utilisateur=?;";
 
 	private static String SQL_AFFICHER_PROFIL= "SELECT *  FROM UTILISATEURS WHERE no_utilisateur=? ;";
@@ -27,7 +28,9 @@ public class JDBCImplProfilDAO {
 			throw new DALException("Erreur dans la requête delete");
 		}
 		
+		
 	}
+
 	public List<User> afficherUser(int no_utilisateur) throws DALException, SQLException{
         
         try {

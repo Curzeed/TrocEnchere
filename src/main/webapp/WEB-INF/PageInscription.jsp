@@ -10,7 +10,7 @@
 </head>
 <body>
 <jsp:include page="PageAccueil.jsp"></jsp:include>
-<h1>Formulaire d'inscription :</h1>
+<h1 class="titleInscrption">Formulaire d'inscription :</h1>
 <form action="./Inscription" method="post">
 <fieldset>
 <p>${erreurpseudo}</p>

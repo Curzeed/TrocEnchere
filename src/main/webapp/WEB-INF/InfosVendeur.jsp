@@ -27,6 +27,7 @@
 				<br />
 				<p >Ville : ${infos.ville} </p>
 				<br />
+				<a href="./ModifiersonProfil">Modifier son Profil</a>
 			</c:forEach>
 		
 			<c:if test="${sessionScope.utilisateur.pseudo}">

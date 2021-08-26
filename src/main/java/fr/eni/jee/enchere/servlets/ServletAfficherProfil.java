@@ -26,7 +26,7 @@ public class ServletAfficherProfil extends HttpServlet {
 		
 		try {
 			ProfilManager pM = new ProfilManager();
-			List<User> listuser = pM.afficherUser(id); // Récupération de la liste user
+			List<User> listuser = pM.afficherUser(id); // RÃ©cupÃ©ration de la liste user
 			request.setAttribute("vendeur", listuser); // Attribrution de la liste Objet User
 			request.getRequestDispatcher("/WEB-INF/InfosVendeur.jsp").forward(request, response);
 			
