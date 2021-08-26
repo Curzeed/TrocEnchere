@@ -11,25 +11,23 @@ import fr.eni.jee.enchere.dal.JDBCImplProfilDAO;
 public class ProfilManager {
 	
 	private JDBCImplProfilDAO ObjectDAO = new JDBCImplProfilDAO();
-	public void deleteUser(String pseudo) {
+	public void deleteUser(int no_utilisateur) {
 		try {
-			ObjectDAO.deleteUser(pseudo);
+			ObjectDAO.deleteUser(no_utilisateur);
 		} catch (DALException | SQLException e) {
 			e.printStackTrace();
 		}
 	}
 
-
-
-public List<User> afficherUser(int no_utilisateur) throws BLLException {
-	List<User> newuser = new ArrayList<User>();
-	try {
-		newuser = ObjectDAO.afficherUser(no_utilisateur);
-		
-	}catch(DALException | SQLException e) {
-		e.printStackTrace();
-		throw new BLLException("Erreur dans le ProfilManager + " + e.getMessage());
-	}
-	return newuser;
-}
+	public List<User> afficherUser(int no_utilisateur) throws BLLException {
+        List<User> newuser = new ArrayList<User>();
+        try {
+            newuser = ObjectDAO.afficherUser(no_utilisateur);
+            
+        }catch(DALException | SQLException e) {
+            e.printStackTrace();
+            throw new BLLException("Erreur dans le ProfilManager + " + e.getMessage());
+        }
+        return newuser;
+    }
 }

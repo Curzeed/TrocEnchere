@@ -37,7 +37,7 @@ public class ServletNouvelleEnchere extends HttpServlet {
 		try {
 			am.addArticle(article, description, dateDebut, dateFin, prix, utilisateur.getId(),categorie, etatVente, image);
 		}catch (BLLException e) {
-			request.setAttribute("erreur", e);
+			request.setAttribute("erreur", "Erreur dans la création d'un article + "+e.getMessage());
 			e.printStackTrace();
 		}
 	}

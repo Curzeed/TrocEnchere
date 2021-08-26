@@ -65,12 +65,12 @@ public class JDBCImplObjectDAO {
 		
 		}catch (SQLException e) {
 			if (e.getMessage().contains("utilisateurs_pseudo_uq")) {
-				throw new DALException("Le pseudo est dÈj‡ utilisÈ");
+				throw new DALException("Le pseudo est d√©j√† utilis√©");
 			}if (e.getMessage().contains("utilisateurs_email_uq")) {
-				throw new DALException("Le mail est dÈj‡ utilisÈ");
+				throw new DALException("Le mail est d√©j√† utilis√©");
 			}
 			e.printStackTrace();
-			throw new DALException("ProblËme de l'inscription dans la DAL");
+			throw new DALException("Probl√®me de l'inscription dans la DAL");
 		}
 	}
 	public void modifyUser(User utilisateur) throws DALException {
@@ -92,10 +92,10 @@ public class JDBCImplObjectDAO {
 			e.printStackTrace();
 			if (e.getMessage().contains("utilisateurs_pseudo_uq")) {
 				e.printStackTrace();
-				throw new DALException("Le pseudo est dÈj‡ utilisÈ");
+				throw new DALException("Le pseudo est d√©j√† utilis√©");
 			}if(e.getMessage().contains("utilisateurs_email_uq")) {
 				e.printStackTrace();
-				throw new DALException("L'email est dÈj‡ utilisÈe");
+				throw new DALException("L'email est d√©j√† utilis√©");
 			}
 		}
 	}

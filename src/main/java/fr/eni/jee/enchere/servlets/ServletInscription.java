@@ -2,6 +2,7 @@ package fr.eni.jee.enchere.servlets;
 import java.io.IOException;
 import java.util.regex.Pattern;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,6 +34,9 @@ public class ServletInscription extends HttpServlet {
         String codepostalString = request.getParameter("cp"); 
         String ville = request.getParameter("ville");
         String mdp = request.getParameter("mdp");
+
+        String confirmationmdp = request.getParameter("mdpConfirm");
+
         
         int codepostal = Integer.parseInt(codepostalString);
         if(isAlphaNumeric(pseudo) == true && isAlphaNumeric(prenom)&& isAlphaNumeric(nom) == true && validateEmail(email) == true){
@@ -40,32 +44,37 @@ public class ServletInscription extends HttpServlet {
                 om.addUser(pseudo, nom, prenom, email, tel, rue, codepostal, ville, mdp);
                 HttpSession  session = request.getSession();
                 session.setAttribute("pseudo", pseudo);
-                request.getRequestDispatcher("/WEB-INF/PageAccueil.jsp").forward(request, response);
+                request.getRequestDispatcher("/ListeEnchere").forward(request, response);
                 } catch (BLLException e) {
                     e.getMessage();
                     request.setAttribute("erreur", e);
+                    request.getRequestDispatcher("/WEB-INF/PageInscription.jsp").forward(request, response);
                 }
         }if (isAlphaNumeric(pseudo) == false ) {
-			request.setAttribute("erreurpseudo", "CaractËres spÈciaux dans le champ Pseudo");
+			request.setAttribute("erreurpseudo", "Caract√®res sp√©ciaux dans le champ Pseudo");
 			request.getRequestDispatcher("/WEB-INF/PageInscription.jsp").forward(request, response);
 		}if (isAlphaNumeric(prenom) == false) {
-			request.setAttribute("erreurprenom", "CaractËres spÈciaux dans le champ PrÈnom");
+			request.setAttribute("erreurprenom", "Caract√®res sp√©ciaux dans le champ Pr√©nom");
 			request.getRequestDispatcher("/WEB-INF/PageInscription.jsp").forward(request, response);
 		}if (isAlphaNumeric(nom) == false ) {
-			request.setAttribute("erreurnom", "CaractËres spÈciaux dans le champ Nom");
+			request.setAttribute("erreurnom", "Caract√®res sp√©ciaux dans le champ Nom");
 			request.getRequestDispatcher("/WEB-INF/PageInscription.jsp").forward(request, response);
 		}if (isAlphaNumeric(ville) == false) {
-			request.setAttribute("erreurville", "CaractËres spÈciaux dans le champ ville");
+			request.setAttribute("erreurville", "Caract√©res sp√®ciaux dans le champ ville");
 			request.getRequestDispatcher("/WEB-INF/PageInscription.jsp").forward(request, response);
 		}if (validateEmail(email) == false) {
-			request.setAttribute("erreuremail", "CaractËres spÈciaux dans le champ email");
+			request.setAttribute("erreuremail", "Caract√©res sp√®ciaux dans le champ email");
 			request.getRequestDispatcher("/WEB-INF/PageInscription.jsp").forward(request, response);
+		}if (mdp.equals(confirmationmdp) == false) {
+			request.setAttribute("Erreur confirmation mot de passe", "Erreur dans la confirmation du mot de passe");
+			request.getRequestDispatcher("/WEB-INF/PageInscription.jsp").forward(request, response);
+
 		}
         }// TODO Faire l'email v√©rification 
         
     public static boolean isAlphaNumeric(String s) {
-        return s.matches("[A-Za-z0-9]+");
-    }
+        return s.matches("^[a-zA-Z0-9 ]*$");
+    } 
     private static final String EMAIL_PATTERN = 
 	        "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
 	        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
