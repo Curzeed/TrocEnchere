@@ -94,7 +94,7 @@ div.articles{
 	border: 1px solid black;
 	flex-direction: row;
 	height : 200%;
-	width: 200%;
+	width: 100%;
 	justify-content: center;
 	box-shadow: inset 0 0 1em blue, 0 0 2em black;
 }
