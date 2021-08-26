@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="css/modifierProfil.css"/>
+<link rel="stylesheet" href="css/styleModifierProfil.css"/>
 <title>Modifier son profil</title>
 </head>
 <body>
