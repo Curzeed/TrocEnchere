@@ -3,5 +3,148 @@
 /*
 author : Charnet Valentin
 description : CSS PageAccueil
-Date last update : 23/08/21
+Date last update : 26/08/21
 */
+
+h1.TitleNewSell{
+	flex-grow: 2;
+	display : flex;
+	font-size: 200%;
+	font-family : Courier;
+	color: black;
+	align-content: center;
+	margin-top: 50px;
+	width: auto;
+	height: auto;
+	text-align: center;
+	justify-content: center;
+}
+form{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+div.descriptif{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: stretch;
+	align-content: center;
+	flex-wrap: wrap;
+}
+div.nomArticle{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+label.labelNom{
+	display: flex;
+}
+input.inputNom{
+	display: flex;
+}
+div.descriptArticle{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+div.categtArticle{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+div.photoArticle{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+div.MiseAPrixArticle{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+div.DebutEnchereArticle{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+input.inputDebut{
+	margin-left: 5px;
+}
+div.FinEnchereArticle{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+fieldset{
+	margin-top: 25px;
+	display: flex;
+	width: 75%;
+	justify-content: center;
+}
+legend{
+	font-size: 125%;
+}
+div.Retrait{
+	display: flex;
+	flex-direction: column;
+}
+div.cadreWriteRetrait{
+	display: flex;
+	justify-content: center;
+}
+div.rueRetrait{
+	display: flex;
+}
+input.inputRue{
+	margin-left: 5px;
+}
+div.cpRetrait{
+	display: flex;
+	margin-left: 25px;
+}
+input.inputCp{
+	margin-left: 5px;
+}
+div.villeRetrait{
+	display: flex;
+	margin-left: 25px;
+}
+input.inputVille{
+	margin-left: 5px;
+}
+div.buttonsNewSell{
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+}
+button.buttonRegister{
+	display: block;
+	text-decoration : none;
+	font-size: 125%;
+	font-family : papyrus;
+	background-color: #203F7B;
+	color: white;
+	border: solid;
+	border-color : #203F7B;
+	border-radius: 5px;
+	border-width: 2px;
+	height: auto;
+	cursor: pointer;
+}
+button.buttonReset{
+	display: block;
+	margin-left: 25px;
+	text-decoration : none;
+	font-size: 125%;
+	font-family : papyrus;
+	background-color: #203F7B;
+	color: white;
+	border: solid;
+	border-color : #203F7B;
+	border-radius: 5px;
+	border-width: 2px;
+	height: auto;
+	cursor: pointer;
+}

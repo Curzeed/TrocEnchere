@@ -3,7 +3,7 @@
 /*
 author : Charnet Valentin
 description : CSS PageInscription
-Date last update : 25/08/21
+Date last update : 26/08/21
 */
 
 h1.titleInscrption{
@@ -18,6 +18,9 @@ h1.titleInscrption{
 	height: auto;
 	text-align: center;
 	justify-content: center;
+}
+p{
+	color: red;
 }
 form{
 	display: block;

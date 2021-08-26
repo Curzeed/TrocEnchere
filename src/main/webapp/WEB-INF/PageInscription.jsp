@@ -13,7 +13,6 @@
 <h1 class="titleInscrption">Formulaire d'inscription :</h1>
 <form action="./Inscription" method="post">
 <fieldset>
-<p>${erreurpseudo}</p>
 <div class="cadreWriteInscription">
 	<div class="firstcolumn">
 		<div class="pseudo">
