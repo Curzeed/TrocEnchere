@@ -15,8 +15,10 @@ import fr.eni.jee.enchere.bo.User;
 public class JDBCImplEnchereDAO {
 
 	private static String SQL_SELECT = "SELECT * FROM ARTICLES_VENDUS AS a LEFT OUTER JOIN ENCHERES AS e ON a.no_article = e.no_article INNER JOIN UTILISATEURS AS u ON a.no_utilisateur = u.no_utilisateur WHERE 1 = 1 ; ";
+	private static String SQL_INSERT_ENCHERE = "insert into ENCHERES(no_utilisateur, no_article, date_enchere, montant_enchere) values('?', '?','?', '?')";
+	private static String SQL_UPDATE_ENCHERE = "update ENCHERES set montant_enchere='?', no_utilisateur='?', date_enchere='?' where no_article='?'";
 
-
+	
 	public List<Article> listeEnchere () throws DALException{
 
 		List<Article> newlist = new ArrayList<Article>();
@@ -42,5 +44,31 @@ public class JDBCImplEnchereDAO {
 		}
 
 		return newlist;
+	}
+
+	public void insertEnchere(Enchere enchere) throws DALException{
+		try {
+			
+			Connection connection = ConnectionProvider.getConnection();
+
+		PreparedStatement pS = connection.prepareStatement(SQL_UPDATE_ENCHERE);
+		pS.setInt(1, enchere.getMontant_enchere() );
+		pS.setInt(2, enchere.getId_utilisateur());
+		pS.setTimestamp(3, java.sql.Timestamp.valueOf(enchere.getDate_enchere()));
+		pS.setInt(4, enchere.getId_article());
+		int rowCount = pS.executeUpdate();
+		if (rowCount == 0) {
+			pS = connection.prepareStatement(SQL_INSERT_ENCHERE);
+			pS.setInt(1, enchere.getId_utilisateur() );
+			pS.setInt(2, enchere.getId_article());
+			pS.setTimestamp(3, java.sql.Timestamp.valueOf(enchere.getDate_enchere()));
+			pS.setInt(4, enchere.getMontant_enchere());
+			pS.executeUpdate();
+		}
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new DALException ("Erreur dans la création d'un article"+ e.getMessage());
+		}
 	}
 }

@@ -37,7 +37,7 @@ public class JDBCImlpArticleDAO {
 		pS.executeUpdate();
 		ResultSet rs = pS.getGeneratedKeys();
 		if (rs.next()) {
-			article.setIdArticle(rs.getInt(0));
+			article.setIdArticle(rs.getInt(1));
 		}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
