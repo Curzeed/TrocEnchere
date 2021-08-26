@@ -29,7 +29,8 @@
 
 <form action="./DetailArticle" method="post">
 	<label for="mise">Ma proposition : </label>
-	<input type="number" />
+	<input type="number" name="montant"/>
+	<input name="idArticle" type="hidden" value="${detailArticle.idArticle}">
 	<button type="submit">Enchérir</button>
 </form>
 </body>

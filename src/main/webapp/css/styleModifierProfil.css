@@ -1,44 +1,22 @@
-@charset "UTF-8";
 
-/*
-author : Charnet Valentin
-description : CSS PageInscription
-Date last update : 26/08/21
-*/
-
-h1.titleInscrption{
-	flex-grow: 2;
-	display : flex;
-	font-size: 200%;
-	font-family : Courier;
-	color: black;
-	align-content: center;
-	margin-top: 50px;
-	width: auto;
-	height: auto;
-	text-align: center;
-	justify-content: center;
-}
-p{
-	color: red;
-}
 form{
 	display: block;
 	align-content: center;
 	text-align: center;
 	justify-content: center;
 }
-div.cadreWriteInscription{
+
+div.modifProfil{
 	display: flex;
-	flex-direction: row;
 	justify-content: center;
 }
 div.firstcolumn{
 	display: flex;
 	flex-direction: column;
-    align-items: flex-end;
+    align-items: flex-start;
     justify-content: center;
     margin-right: 10px;
+    margin-top: 10px;
 }
 div.secondcolumn{
 	display: flex;
@@ -46,82 +24,118 @@ div.secondcolumn{
     align-items: flex-end;
     justify-content: center;
     margin-left: 10px;
+    margin-bottom: 10px;
+}
+div.vide{
+	display:block;
+	justify-content: space-between;
 }
 div.pseudo{
 	display: block;
 	flex-direction: row;
 	justify-content: space-between;
 }
-div.mdp{
+
+div.mdpact{
 	display: block;
 	flex-direction: row;
 	justify-content: space-between;
 }
-div.surname{
+
+div.mdpnv{
 	display: block;
 	flex-direction: row;
 	justify-content: space-between;
 }
-div.firstname{
+
+div.mdpnvconf{
 	display: block;
 	flex-direction: row;
 	justify-content: space-between;
 }
+
+div.nom{
+	display: block;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+div.prenom{
+	display: block;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
 div.email{
 	display: block;
 	flex-direction: row;
 	justify-content: space-between;
 }
-div.phone{
+
+
+div.tel{
 	display: block;
 	flex-direction: row;
 	justify-content: space-between;
-}
-div.adress{
-	display: block;
-	flex-direction: row;
-	justify-content: space-between;
-}
-div.postalCode{
-	display: block;
-	flex-direction: row;
-	justify-content: space-between;
-}
-div.Town{
-	display: block;
-	flex-direction: row;
-	justify-content: space-between;
-}
-button.createButton{
-	text-decoration : none;
-	font-size: 100%;
-	font-family : papyrus;
-	background-color: #203F7B;
-	color: white;
-	border: solid;
-	border-color : #203F7B;
-	border-radius: 5px;
-	border-width: 2px;
-	height: auto;
-	cursor: pointer;
-}
-a.cancelButton{
-	text-decoration : none;
-	font-size: 100%;
-	font-family : papyrus;
-	background-color: #203F7B;
-	color: white;
-	border: solid;
-	border-color : #203F7B;
-	border-radius: 5px;
-	border-width: 2px;
-	height: auto;
-	cursor: pointer;
-}
-div.errorMessage{
-	display: flex;
 }
 
+div.adresse{
+	display: block;
+	flex-direction: row;
+	justify-content: space-between;
+}
+div.cp{
+	display: block;
+	flex-direction: row;
+	justify-content: space-between;
+}
+div.ville{
+	display: block;
+	flex-direction: row;
+	justify-content: space-between;
+}
 p{
 	color:red;
+}
+button.modifButton {
+	text-decoration : none;
+	font-size: 120%;
+	font-family : papyrus;
+	background-color: #203F7B;
+	color: white;
+	border: solid;
+	background: #203F7B;
+	border-radius: 15px;
+	padding: 2px 5px ;
+	
+	cursor: pointer;
+	
+}
+button:hover{
+  border: solid;
+  border-radius: 15px;
+  background: #0000a0;
+  
+}
+a{
+	text-decoration : none;
+	font-size: 100%;
+	font-family : papyrus;
+	outline: none;
+	color: white;
+	text-decoration: none;
+    padding: 5px 5px ;
+	border: solid;
+	border-radius: 15px;
+	background: #203F7B;
+    cursor: pointer;
+}
+a:link{
+	color:#203F7B;
+	
+}
+a:hover {
+  border: solid;
+  border-radius: 15px;
+  background: #0000a0;
 }

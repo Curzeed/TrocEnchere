@@ -76,6 +76,7 @@
 			<input type="text" name="ville" placeholder="Votre ville" required/>
 			<p>${erreurville}</p>
 		</div>
+		
 	</div>
 </div>
 <br>

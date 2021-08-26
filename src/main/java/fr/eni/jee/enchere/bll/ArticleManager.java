@@ -26,12 +26,7 @@ public class ArticleManager {
 				throw new BLLException(e.getMessage());
 			}return nouveauArticle;
 		
-	}
-	public void newEnchere(int no_utilisateur, int no_article, LocalDateTime date_enchere, int montant_enchere) {
-		
-	}
-	
-	
+	}	
 	public List<Categorie> selectCategorie() throws BLLException {
 		List<Categorie> categorieList = null;
 		

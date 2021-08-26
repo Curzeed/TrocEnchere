@@ -19,6 +19,16 @@ public class Article {
 	public Categorie categories;
 	
 	
+	public Categorie getCategories() {
+		return categories;
+	}
+
+
+	public void setCategories(Categorie categories) {
+		this.categories = categories;
+	}
+
+
 	public User getUser() {
 		return user;
 	}
