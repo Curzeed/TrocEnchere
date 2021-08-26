@@ -35,7 +35,7 @@ public class ServletDetailArticle extends HttpServlet {
 			request.setAttribute("erreur",e.getMessage()+"Erreur dans l'affichage d'un article");
 			e.printStackTrace();
 		}
-		request.setAttribute("detailArticle", listeDetailArticle);
+		request.setAttribute("detailArticle", listeDetailArticle.get(0));
 		request.getRequestDispatcher("/WEB-INF/PageArticle.jsp").forward(request, response);
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
