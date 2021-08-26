@@ -14,6 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 public class ServletAccueil extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/PageAccueil.jsp").forward(request, response);;
+		request.getRequestDispatcher("/WEB-INF/ListeEnchere").forward(request, response);;
 	}
 }
