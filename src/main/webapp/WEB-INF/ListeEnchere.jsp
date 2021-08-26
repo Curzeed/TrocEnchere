@@ -169,7 +169,7 @@
 					<div class="imageArticle">
 						<c:choose>
 						<c:when test="${!empty liste}">
-						<img src="<%-- ${pageContext.request.contextPath}/uploads/${liste.image} --%> pictures/ballon.jpg" alt="${liste.article}" />
+						<img src=" ${pageContext.request.contextPath}/uploads/${liste.image} " alt="${liste.article}" />
 						</c:when>
 						<c:otherwise>
 						<img src="${pageContext.request.contextPath}/images/photo.svg"
