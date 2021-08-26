@@ -30,7 +30,7 @@
 	<c:if test="${empty sessionScope.utilisateur}">
 		<div class="offline-buttons">
 			<a class= "button-login" href="./Login">Se connecter</a><br/>
-			<a class= "button-signup" href="./Inscription">S'incrire</a>
+			<a class= "button-signup" href="./Inscription">S'inscrire</a>
 			
 		</div>
 	</c:if>
