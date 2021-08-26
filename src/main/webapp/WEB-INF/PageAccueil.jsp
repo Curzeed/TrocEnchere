@@ -11,7 +11,7 @@
 <body>
 <header>
 <div class="HeaderAccueil">
-	<img src="pictures/logoENI_enchere.png" alt="LogoENI_Enchere">
+	<img class="LogoENI_Enchere" src="pictures/logoENI_enchere.png" alt="LogoENI_Enchere">
 	<div class="middlestyle">
 	<a class="button-home" href="./Accueil">Accueil</a>
 	<h1 class="titreSite">ENI-ENCHERES</h1>

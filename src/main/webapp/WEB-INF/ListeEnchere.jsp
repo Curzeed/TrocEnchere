@@ -11,11 +11,14 @@
 <body>
 	<jsp:include page="PageAccueil.jsp"></jsp:include>
 	<h1 class="titleListEnch">Liste des enchères :</h1>
-		<div>
-			<form action="./ListeEnchere" method="post">
+		<div class="researchBlock">
+		<h3 class="titleFiltres">Filtres</h3>
+			<form class="categList" action="./ListeEnchere" method="post">
+			<div class="researchcateglist">
+			<input type="text" name="researchArticle" class="researchArticle" placeholder="Que recherchez vous ?" />
 			<div class="categories">
 				<label for="categorieS">Categorie :</label>
-					<select name="categories" id="">
+					<select class="selectCateg" name="categories" id="">
 			 			<c:forEach items="${listcategory}" var="category">
                 			<option value="${category.no_categorie}">
                    				 ${category.libelle}
@@ -23,6 +26,7 @@
                 
             			</c:forEach>	
 					</select>
+			</div>
 			</div>
 			<br> 
 				
@@ -148,22 +152,32 @@
 				<button class="search" type="submit" >Rechercher</button>
 			</form>
 	    </div>
-	    <div>
-	    	<h2 class="titleEnch"> Enchères : </h2>
+	    <h2 class="titleEnch"> Enchères : </h2>
+	    	<div class="encheres">
 	    		<c:forEach items="${encheres}" var="liste">
+	    		<div class="articles">
 	    				<article> 
 	    					<c:if test="${!empty sessionScope.utilisateur.pseudo}"> 
 	    					<a href="./DetailArticle">${liste.article}</a>
 	    					</c:if>
-	    					<c:if test="${empty sessionScope.utilisateur.pseudo}">
-	    					${liste.article}
-	    					</c:if>
-	    					${liste.prix_vente}
-	    					<img src="${liste.image}" alt="" />
-	    					${liste.dateFin}
+	    					<div class="nomArticle">
+	    						<c:if test="${empty sessionScope.utilisateur.pseudo}">${liste.article}</c:if>
+	    					</div>
+	    					<div class="prixVente">
+	    						<c:if test="${empty sessionScope.utilisateur.pseudo}">${liste.prix_vente}</c:if>
+	    					</div>
+	    					<div class="imageArticle">
+	    						<img src="<%-- ${liste.image} --%> pictures/ballon.jpg" alt=""   />
+	    					</div>
+	    					<div class="dateFinArticle">
+	    						<c:if test="${empty sessionScope.utilisateur.pseudo}">${liste.dateFin}</c:if>
+	    					</div>
+	    					<div class="profilUtilviaArticle">
 	    					<%-- <a href="./ProfilUtilisateur?=${liste.article.idVendeur}">${liste.user.pseudo}</a> --%>
-	    				</article>    		
+	    					</div>
+	    				</article>
+	    		</div>
 	    		</c:forEach>
-	    </div>
+	    	</div> 
 </body>
 </html>
