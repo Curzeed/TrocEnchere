@@ -39,7 +39,8 @@ public class ServletListeEnchere extends HttpServlet {
 		request.getRequestDispatcher("/WEB-INF/ListeEnchere.jsp").forward(request, response);
 		} catch (BLLException e1) {
 		e1.printStackTrace();
-		
+		request.setAttribute("erreur", e1.getMessage()+"Erreur dans l'affichage de la liste d'enchère");
+		request.getRequestDispatcher("/WEB-INF/ListeEnchere.jsp").forward(request, response);
 		}
 	}
 

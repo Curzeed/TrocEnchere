@@ -18,18 +18,16 @@ public class ProfilManager {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	
+
 	public List<User> afficherUser(int no_utilisateur) throws BLLException {
-		List<User> newuser = new ArrayList<User>();
-		try {
-			newuser = ObjectDAO.afficherUser(no_utilisateur);
-			
-		}catch(DALException | SQLException e) {
-			e.printStackTrace();
-			throw new BLLException("Erreur dans le ProfilManager + " + e.getMessage());
-		}
-		return newuser;
-	}
+        List<User> newuser = new ArrayList<User>();
+        try {
+            newuser = ObjectDAO.afficherUser(no_utilisateur);
+            
+        }catch(DALException | SQLException e) {
+            e.printStackTrace();
+            throw new BLLException("Erreur dans le ProfilManager + " + e.getMessage());
+        }
+        return newuser;
+    }
 }

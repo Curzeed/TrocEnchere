@@ -28,6 +28,7 @@ public class ServletLogin extends HttpServlet {
 		String erreur = "Pseudo ou mot de passe incorrect";
 		String souvenir = request.getParameter("souvenir");
 		String name = request.getParameter("pseudo");
+		String password = request.getParameter("motdepasse");
 		try {
 			user = om.valideLogin(pseudorecup, mdp);
 		} catch (BLLException e1) {
@@ -38,7 +39,7 @@ public class ServletLogin extends HttpServlet {
 		try {
 			if(user != null ) {
 				 HttpSession session = request.getSession();
-				 session.setAttribute("utilisateur", user);	 
+				 session.setAttribute("utilisateur", user); 
 				 if(souvenir!=null) {
 					 	Cookie ck = new Cookie("pseudo",name);
 						ck.setMaxAge(-1);
@@ -49,7 +50,7 @@ public class ServletLogin extends HttpServlet {
 						response.addCookie(ck2);
 						*/	
 					 }
-				 request.getRequestDispatcher("./ListeEnchere").forward(request, response);
+				 request.getRequestDispatcher("/ListeEnchere").forward(request, response);
 			}else {
 				 request.setAttribute("erreur",erreur);
 				 request.getRequestDispatcher("/WEB-INF/PageLogin.jsp").forward(request, response);
@@ -57,6 +58,7 @@ public class ServletLogin extends HttpServlet {
 		} catch (ServletException | IOException e) {
 			request.setAttribute("erreur",e);
 			e.printStackTrace();
+			request.getRequestDispatcher("/WEB-INF/PageLogin.jsp").forward(request, response);
 		}
 		
 		

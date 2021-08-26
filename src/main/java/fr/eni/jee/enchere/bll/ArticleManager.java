@@ -40,8 +40,18 @@ public class ArticleManager {
 		} catch (SQLException | DALException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			throw new BLLException("Erreur BLL + Erreur dans la séléction des catégories ");
+			throw new BLLException("Erreur BLL + Erreur dans la sï¿½lï¿½ction des catï¿½gories ");
 		}
 		return categorieList;
+	}
+	public List<Article> detailArticle(int no_article) throws BLLException {
+		List<Article> detailArticle = null;
+		
+		try {
+			detailArticle = ArticleDAO.detailArticle(no_article);
+		}catch (DALException e) {
+			e.printStackTrace();
+			throw new BLLException("Erreur dans la bll + Erreur dans l'affichage des articles");
+		}return detailArticle;
 	}
 }

@@ -6,14 +6,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Nouvelle Enchère</title>
 </head>
 <body>
 <jsp:include page="PageAccueil.jsp"></jsp:include>
 <h1>Nouvelle vente </h1><br>
 
-
-	<form action="./venteEnchere" method="post" enctype="multipart/form-data">
+	<form action="${pageContext.request.contextPath}/venteEnchere" method="post" enctype="multipart/form-data">
 
 		<label for="article">Article :</label> 
 		<input type="text"name="article" required><br> 
@@ -29,8 +28,7 @@
             </c:forEach>	
 		</select><br> 
 		<label for="photo">Photo de l'article</label>
-		<input type="file" id="pictureFile" name="pictureFile" accept="image/png, image/jpeg" onchange="PreviewImage();"/>
-			<form method="post" action="${pageContext.request.contextPath}/result" enctype="multipart/form-data"> 
+		<input type="file" accept="image/png,image/jpeg" name="img">
 			<img id="uploadPreview" style="width: 100px; height: 100px;"/> 
 			<script type="text/javascript"> 
 			function PreviewImage() { 
@@ -40,7 +38,6 @@
 			document.getElementById("uploadPreview").src = oFREvent.target.result; };}; 
 			</script> <br>
 			
-			</form>
 		<label for="miseAPrix">Mise à prix : </label> 
 		<input type="number"name="prix" min="0" max="10000"><br> 
 		<label for="DebutEnchere">Début de l'enchère :</label> 

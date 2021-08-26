@@ -16,6 +16,7 @@ public class Article {
 	private String etat = "CR";
 	private String image;
 	public User user;
+	public Categorie categories;
 	
 	
 	public User getUser() {
@@ -37,6 +38,7 @@ public class Article {
 	
 	
 	
+
 
 
 	public Article(String article, String description, LocalDateTime dateDebut2, LocalDateTime dateFin2, int prix, int idVendeur,
@@ -98,6 +100,41 @@ public class Article {
 		//this.enchere = enchere;
 	}
 
+	public Article(int idArticle, String article, String description, LocalDateTime dateFin, int prix_vente,
+			int idVendeur, String image, User user) {
+		super();
+		this.idArticle = idArticle;
+		this.article = article;
+		this.description = description;
+		this.dateFin = dateFin;
+		this.prix_vente = prix_vente;
+		this.idVendeur = idVendeur;
+		this.image = image;
+		this.user = user;
+
+	}
+
+
+	public Article(int no_article, String nom_article, LocalDateTime date_fin_enchere, String image, int montant_enchere, int no_utilisateur,
+			User user) {
+		this.idArticle = no_utilisateur;
+		this.article = nom_article;
+		this.dateFin = date_fin_enchere;
+		this.image = image;
+		this.idVendeur = no_utilisateur;
+		this.user = user;
+	}
+
+	public Article(int no_article, String nom_article, LocalDateTime date_fin_enchere, String image, int montant_enchere, int no_utilisateur,
+			User user, Categorie categories) {
+		this.idArticle = no_utilisateur;
+		this.article = nom_article;
+		this.dateFin = date_fin_enchere;
+		this.image = image;
+		this.idVendeur = no_utilisateur;
+		this.user = user;
+		this.categories = categories;
+	}
 
 	public int getIdArticle() {
 		return idArticle;

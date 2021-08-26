@@ -3,17 +3,17 @@
 /*
 author : Charnet Valentin
 description : CSS PageInscription
-Date last update : 24/08/21
+Date last update : 25/08/21
 */
 
-h1{
+h1.titleInscrption{
 	flex-grow: 2;
 	display : flex;
 	font-size: 200%;
 	font-family : Courier;
 	color: black;
 	align-content: center;
-	margin-top: 100px;
+	margin-top: 50px;
 	width: auto;
 	height: auto;
 	text-align: center;
@@ -26,9 +26,23 @@ form{
 	justify-content: center;
 }
 div.cadreWriteInscription{
-	display: table;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+div.firstcolumn{
+	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+    align-items: flex-end;
+    justify-content: center;
+    margin-right: 10px;
+}
+div.secondcolumn{
+	display: flex;
+	flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    margin-left: 10px;
 }
 div.pseudo{
 	display: block;

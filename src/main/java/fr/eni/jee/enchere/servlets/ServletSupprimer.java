@@ -22,7 +22,7 @@ public class ServletSupprimer extends HttpServlet {
 		ProfilManager pm = new ProfilManager();
 		
 		User user = (User) request.getSession().getAttribute("utilisateur");
-		
+
 		pm.deleteUser(user.getId());
 		request.getSession().invalidate();
 		request.getRequestDispatcher("/ListeEnchere").forward(request, response);
