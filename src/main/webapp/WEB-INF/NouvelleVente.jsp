@@ -37,7 +37,7 @@
 		</div>
 		<br> 
 		<div class="photoArticle">
-			<label class="labelPhoto" for="photo">Photo de l'article</label><br>
+			<label class="labelPhoto" for="photo">Photo de l'article :</label><br>
 				<input class="inputPhoto" type="file" accept="image/png,image/jpeg" name="img"><br>
 					<img id="uploadPreview" style="width: 100px; height: 100px;"/> 
 					<script type="text/javascript"> 
@@ -65,8 +65,7 @@
 		</div>
 	</div>
 	<br>
-		<fieldset>
-			<legend>Retrait</legend>
+		<h2 class="TitleRetrait"> Retrait </h2>
 			<div class="Retrait">
 				<div class="cadreWriteRetrait">
 					<div class="rueRetrait">
@@ -90,7 +89,6 @@
 					<button class="buttonReset" type="reset">Annuler</button>
 				</div>
 			</div>
-		</fieldset>
 	</form>
 
 

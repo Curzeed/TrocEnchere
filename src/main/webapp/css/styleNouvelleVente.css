@@ -86,6 +86,20 @@ fieldset{
 legend{
 	font-size: 125%;
 }
+h2.TitleRetrait{
+	flex-grow: 2;
+	display : flex;
+	font-size: 200%;
+	font-family : Courier;
+	color: black;
+	align-content: center;
+	margin-top: 25px;
+	width: auto;
+	height: auto;
+	text-align: center;
+	justify-content: center;
+}
+
 div.Retrait{
 	display: flex;
 	flex-direction: column;
@@ -118,6 +132,7 @@ div.buttonsNewSell{
 	display: flex;
 	justify-content: center;
 	flex-direction: row;
+	margin-top: 10px;
 }
 button.buttonRegister{
 	display: block;
