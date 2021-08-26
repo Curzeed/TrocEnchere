@@ -16,6 +16,7 @@ public class Article {
 	private String etat = "CR";
 	private String image;
 	public User user;
+	public Categorie categories;
 	
 	
 	public User getUser() {
@@ -124,6 +125,16 @@ public class Article {
 		this.user = user;
 	}
 
+	public Article(int no_article, String nom_article, LocalDateTime date_fin_enchere, String image, int montant_enchere, int no_utilisateur,
+			User user, Categorie categories) {
+		this.idArticle = no_utilisateur;
+		this.article = nom_article;
+		this.dateFin = date_fin_enchere;
+		this.image = image;
+		this.idVendeur = no_utilisateur;
+		this.user = user;
+		this.categories = categories;
+	}
 
 	public int getIdArticle() {
 		return idArticle;
