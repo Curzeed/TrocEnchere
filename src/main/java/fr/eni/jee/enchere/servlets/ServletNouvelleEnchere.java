@@ -26,7 +26,7 @@ public class ServletNouvelleEnchere extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ArticleManager am = new ArticleManager();
 		String appPath = request.getServletContext().getRealPath("");
-		Part part = request.getPart("pictureFile");
+		Part part = request.getPart("img");
 		String fileName = saveFile(appPath, part);
 		User utilisateur = (User) request.getSession().getAttribute("utilisateur");
 		String article = request.getParameter("article");
@@ -40,6 +40,7 @@ public class ServletNouvelleEnchere extends HttpServlet {
 		
 		try {
 			am.addArticle(article, description, dateDebut, dateFin, prix, utilisateur.getId(),categorie, etatVente, fileName);
+			request.getRequestDispatcher("/ListeEnchere").forward(request, response);
 		}catch (BLLException e) {
 			request.setAttribute("erreur", e);
 			e.printStackTrace();
