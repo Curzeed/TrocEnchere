@@ -31,7 +31,8 @@
 			<br> 
 				
 			<c:if test="${!empty sessionScope.utilisateur.pseudo}">
-				 
+		<div class="checkBlock"> 
+			<div class="checkAchat">
 			<div class="form-check">
 		<label class="form-check-label"> <input type="radio"
 			class="form-check-input" name="type-encheres" value="achats"
@@ -58,7 +59,10 @@
 				remportées
 			</label>
 		</div>
+		</div>
 	</div>
+	<br>
+	<div class="checkVentes">
 	<div class="form-check">
 		<label class="form-check-label"> <input type="radio"
 			class="form-check-input" name="type-encheres"
@@ -85,6 +89,8 @@
 				class="form-check-input"
 				name="ventes" value="terminees" id="terminees">Mes ventes terminées
 			</label>
+			</div>
+			</div>
 		</div>
 	</div>
 	<script

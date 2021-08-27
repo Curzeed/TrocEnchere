@@ -56,6 +56,16 @@ select.selectCateg{
 	display: flex;
 	margin-left: 5px;
 }
+div.checkBlock{
+	display: flex;
+	flex-direction: row;
+}
+div.checkAchat{
+	display: flex
+}
+div.checkVentes{
+	display: flex;
+}
 button.search{
 	text-decoration : none;
 	font-size: 200%;
@@ -87,14 +97,16 @@ h2.titleEnch{
 div.encheres{
 	display: flex;
 	justify-content: space-evenly;
+	flex-direction: row;	
+	flex-wrap: wrap;
 	
 }
 div.articles{
 	display: flex;
 	border: 1px solid black;
 	flex-direction: row;
-	height : 200%;
-	width: 100%;
+	height : 100%;
+	width: 85%;
 	justify-content: center;
 	box-shadow: inset 0 0 1em blue, 0 0 2em black;
 }
