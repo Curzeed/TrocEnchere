@@ -56,7 +56,8 @@ public class ServletModifierSonProfil extends HttpServlet {
         	
         	try {
 			om.modifyManager(newUtilisateur);
-			request.getRequestDispatcher("/WEB-INF/PageModifierProfil.jsp").forward(request, response);
+			request.getSession().invalidate();
+			request.getRequestDispatcher("/WEB-INF/PageLogin.jsp").forward(request, response);
 				} catch (BLLException e) {
 					request.setAttribute("erreur", "erreur dans l'affichage de la page modifier son profil"+e.getMessage());
 					e.printStackTrace();
@@ -80,7 +81,7 @@ public class ServletModifierSonProfil extends HttpServlet {
 				request.setAttribute("erreurconfmdp", "Veuillez confirmer votre nouveau mot de passe");
 				request.getRequestDispatcher("/WEB-INF/PageModifierProfil.jsp").forward(request, response);
 			}if(mdp.equals(utilisateur.getMdp()) == false) {
-				request.setAttribute("erreurmdpactuel", "Veuillez écrire votre mot de passe actuelle");
+				request.setAttribute("erreurmdpactuel", "Veuillez écrire votre mot de passe actuel");
 				request.getRequestDispatcher("/WEB-INF/PageModifierProfil.jsp").forward(request, response);
 			}
 	}
