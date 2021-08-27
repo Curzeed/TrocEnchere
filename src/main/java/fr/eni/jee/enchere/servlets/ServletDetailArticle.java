@@ -57,7 +57,7 @@ public class ServletDetailArticle extends HttpServlet {
 			e.printStackTrace();
 			request.setAttribute("erreur", "Erreur dans la méthode de faire une enchère" + e.getMessage());
 		}
-		request.getRequestDispatcher("/DetailArticle").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/PageArticle.jsp").forward(request, response);
 	}
 
 }
