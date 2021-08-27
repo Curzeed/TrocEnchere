@@ -127,7 +127,7 @@ public class Article {
 
 	public Article(int no_article, String nom_article, LocalDateTime date_fin_enchere, String image, int montant_enchere, int no_utilisateur,
 			User user) {
-		this.idArticle = no_utilisateur;
+		this.idArticle = no_article;
 		this.article = nom_article;
 		this.dateFin = date_fin_enchere;
 		this.image = image;
@@ -137,7 +137,7 @@ public class Article {
 
 	public Article(int no_article, int prix, String nom_article,String Description, LocalDateTime date_fin_enchere, String image, int montant_enchere, int no_utilisateur,
 			User user, Categorie categories) {
-		this.idArticle = no_utilisateur;
+		this.idArticle = no_article;
 		this.article = nom_article;
 		this.dateFin = date_fin_enchere;
 		this.image = image;
