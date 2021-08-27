@@ -164,11 +164,11 @@
 				<div class="articles">
 					<article>
 					<c:if test="${!empty sessionScope.utilisateur.pseudo}">
-						<a href="./DetailArticle?no_article=${liste.idArticle}">${liste.article}</a>
-					</c:if>
 					<div class="nomArticle">
-						<c:if test="${empty sessionScope.utilisateur.pseudo}"></c:if>
+						<a href="./DetailArticle?no_article=${liste.idArticle}">${liste.article}</a>
 					</div>
+					</c:if>
+						<c:if test="${empty sessionScope.utilisateur.pseudo}"></c:if>
 					<div class="prixVente">
 						<img src="${liste.image}" alt="" />${liste.prix_vente}
 					</div>

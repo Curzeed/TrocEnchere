@@ -117,6 +117,7 @@ div.nomArticle{
 	font-family : Courier;
 	text-transform: capitalize;
 	font-size: 150%;
+	color: black;
 }
 div.prixVente{
 	display: flex;
@@ -126,9 +127,24 @@ div.prixVente{
 img.imageArticle{
 	display: flex;
 	justify-content: center;
+	align-items: center;
 }
 div.dateFinArticle{
 	display: flex;
 	text-decoration: none;
 	justify-content: center;
+}
+div.profilUtilviaArticle{
+	display: flex;
+	text-decoration: none;
+	justify-content: center;
+}
+a{
+	text-decoration: none;
+	color: black;
+}
+img{
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
