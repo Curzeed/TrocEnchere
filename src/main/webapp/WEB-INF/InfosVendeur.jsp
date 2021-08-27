@@ -8,28 +8,29 @@
 <title>Informations du vendeur</title>
 </head>
 <body>
+<jsp:include page="PageAccueil.jsp"></jsp:include>
 <fieldset>
-		
+		<c:if test="${!empty sessionScope.utilisateur.pseudo}">
 			<c:forEach  items="${vendeur}" var="infos">
-				<p>Pseudo : ${infos.pseudo}</p>
+				<p><b>Pseudo :</b> ${infos.pseudo}</p>
 				<br />
-				<p >Nom : ${infos.nom} </p>
+				<p ><b>Nom : </b>${infos.nom} </p>
 				<br />
-				<p >Prénom : ${infos.prenom} </p>
+				<p ><b>Prénom : </b>${infos.prenom} </p>
 				<br />
-				<p >Email : ${infos.email} </p>
+				<p ><b>Email : </b>${infos.email} </p>
 				<br />
-				<p >Téléphone : ${infos.telephone}) </p>
+				<p ><b>Téléphone : </b>${infos.telephone} </p>
 				<br />
-				<p >Rue : ${infos.rue} </p>
+				<p ><b>Rue : </b>${infos.rue} </p>
 				<br />
-				<p >Code Postal : ${infos.codePostal} </p>
+				<p ><b>Code Postal : </b>${infos.codePostal} </p>
 				<br />
-				<p >Ville : ${infos.ville} </p>
+				<p ><b>Ville : </b>${infos.ville} </p>
 				<br />
 			</c:forEach>
-		
-			<c:if test="${sessionScope.utilisateur.pseudo}">
+		</c:if>
+			<c:if test="${empty sessionScope.utilisateur.pseudo}">
 				<p> Il faut être connecté pour voir ces informations</p>
 			</c:if>
 		
