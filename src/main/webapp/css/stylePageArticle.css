@@ -1,0 +1,25 @@
+div{
+	display: block;
+	align-content: center;
+	text-align: center;
+	justify-content: center;
+	align-items: flex-start;
+}
+button{
+	text-decoration : none;
+	font-size: 120%;
+	font-family : papyrus;
+	background-color: #203F7B;
+	color: white;
+	border: solid;
+	background: #203F7B;
+	border-radius: 15px;
+	padding: 2px 5px ;
+	cursor: pointer;
+	
+}
+button:hover{
+	border: solid;
+  border-radius: 15px;
+  background: #0000a0;
+}
