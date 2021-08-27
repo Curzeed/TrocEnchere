@@ -49,9 +49,8 @@ public class ServletDetailArticle extends HttpServlet {
 		User user = (User) request.getSession().getAttribute("utilisateur");
 		int montant_enchere = Integer.parseInt(request.getParameter("montant"));	
 		LocalDateTime localdate = LocalDateTime.now();
-		int no_utilisateur = user.getId();
 		
-		Enchere enchere = new Enchere(no_utilisateur, no_article, localdate, montant_enchere);
+		Enchere enchere = new Enchere(user.getId(), no_article, localdate, montant_enchere);
 		try {
 			eM.newEnchere(enchere);
 		} catch (BLLException e) {

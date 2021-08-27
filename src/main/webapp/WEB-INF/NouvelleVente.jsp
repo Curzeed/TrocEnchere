@@ -38,12 +38,12 @@
 		<br> 
 		<div class="photoArticle">
 			<label class="labelPhoto" for="photo">Photo de l'article :</label><br>
-				<input class="inputPhoto" type="file" accept="image/png,image/jpeg" name="img"><br>
+				<input class="inputPhoto" type="file" accept="image/png,image/jpeg" name="img" onchange="PreviewImage"><br>
 					<img id="uploadPreview" style="width: 100px; height: 100px;"/> 
 					<script type="text/javascript"> 
 					function PreviewImage() { 
 					var oFReader = new FileReader();	 
-					oFReader.readAsDataURL(document.getElementById("pictureFile").files[0]); 
+					oFReader.readAsDataURL(document.getElementById("uploadPreview").files[0]); 
 					oFReader.onload = function (oFREvent) {
 					document.getElementById("uploadPreview").src = oFREvent.target.result; };}; 
 					</script>
