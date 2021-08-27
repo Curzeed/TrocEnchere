@@ -5,35 +5,32 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/styleGererProfil.css" />
 <title>Profil</title>
 </head>
 <body>
-    <jsp:include page="PageAccueil.jsp"></jsp:include>
-
-
-	<fieldset>
-		<c:if test="${!empty sessionScope.utilisateur}">
-			<p>Pseudo : ${sessionScope.utilisateur.pseudo}</p>
+<jsp:include page="PageAccueil.jsp"></jsp:include>
+<h1 class="TitleMonProfil">Mon Profil</h1>
+<div class="Profil">
+		<c:if  test="${!empty sessionScope.utilisateur}">
+			<p class="Pseudo">PSEUDO : ${sessionScope.utilisateur.pseudo}</p>
 			<br />
-			<p >Nom :${sessionScope.utilisateur.nom}</p>
+			<p class="Nom">NOM : ${sessionScope.utilisateur.nom}</p>
 			<br />
-			<p >Prénom :${sessionScope.utilisateur.prenom}</p>
+			<p class="Prenom">PRENOM : ${sessionScope.utilisateur.prenom}</p>
 			<br />
-			<p >Email :${sessionScope.utilisateur.email}</p>
+			<p class="Email">EMAIL : ${sessionScope.utilisateur.email}</p>
 			<br />
-			<p >Téléphone :${sessionScope.utilisateur.telephone}</p>
+			<p class="Telephone">TELEPHONE : ${sessionScope.utilisateur.telephone}</p>
 			<br />
-			<p >Rue :${sessionScope.utilisateur.rue}</p>
+			<p class="Rue">RUE : ${sessionScope.utilisateur.rue}</p>
 			<br />
-			<p >Code Postal :${sessionScope.utilisateur.codePostal}</p>
+			<p class="CodePostal">CODE POSTAL : ${sessionScope.utilisateur.codePostal}</p>
 			<br />
-			<p >Ville :${sessionScope.utilisateur.ville}</p>
+			<p class="Ville">VILLE : ${sessionScope.utilisateur.ville}</p>
 			<br />
-			<a href="./ModifiersonProfil">Modifier son Profil</a>
+			<a class="buttonModif" href="./ModifiersonProfil">Modifier son Profil</a>
 		</c:if>
-			
-		
-	</fieldset>
+</div>
 </body>
 </html>

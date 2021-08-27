@@ -135,7 +135,7 @@ public class Article {
 		this.user = user;
 	}
 
-	public Article(int no_article, String nom_article, LocalDateTime date_fin_enchere, String image, int montant_enchere, int no_utilisateur,
+	public Article(int no_article, int prix, String nom_article,String Description, LocalDateTime date_fin_enchere, String image, int montant_enchere, int no_utilisateur,
 			User user, Categorie categories) {
 		this.idArticle = no_utilisateur;
 		this.article = nom_article;
@@ -144,6 +144,8 @@ public class Article {
 		this.idVendeur = no_utilisateur;
 		this.user = user;
 		this.categories = categories;
+		this.description = Description;
+		this.prix = prix;
 	}
 
 	public int getIdArticle() {

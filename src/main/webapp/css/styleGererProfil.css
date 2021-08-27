@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+/*
+author : Charnet Valentin
+description : CSS PageListeEnchere
+Date last update : 26/08/21
+*/
+
+h1.TitleMonProfil{
+	flex-grow: 2;
+	display : flex;
+	font-size: 250%;
+	font-family : Courier;
+	color: black;
+	align-content: center;
+	margin-top: 50px;
+	width: auto;
+	height: auto;
+	text-align: center;
+	justify-content: center;
+}
+div.Profil{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-family: Courier;
+	font-size: 105%;
+}
+p.Nom{
+	display: flex;
+}
+p.Prenom{
+	display: flex;
+}
+p.Email{
+	display: flex;
+}
+p.Telephone{
+	display: flex;
+}
+p.Rue{
+	display: flex;
+}
+p.CodePostal{
+	display: flex;
+}
+p.Ville{
+	display: flex;
+}
+a.buttonModif{
+	text-decoration : none;
+	font-size: 150%;
+	font-family : papyrus;
+	background-color: #203F7B;
+	color: white;
+	border: solid;
+	border-color : #203F7B;
+	border-radius: 5px;
+	border-width: 2px;
+	height: auto;
+	cursor: pointer;
+	align-self: center;
+	display: flex;
+}

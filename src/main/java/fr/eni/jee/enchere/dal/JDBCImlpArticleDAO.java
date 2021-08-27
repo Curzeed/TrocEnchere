@@ -86,7 +86,7 @@ public class JDBCImlpArticleDAO {
 				User user = new User(rS.getInt("no_utilisateur"), rS.getString("pseudo"), rS.getString("nom"), rS.getString("prenom"), rS.getString("prenom"), rS.getString("email"), rS.getString("telephone"), rS.getInt("code_postal"), rS.getString("rue"), rS.getString("ville"), rS.getInt("credit"), rS.getByte("administrateur"));
 				Integer montantEnchere = rS.getInt("montant_enchere");
 				Categorie categorie = new Categorie(rS.getInt("no_categorie"), rS.getString("libelle"));
-				Article article = new Article(rS.getInt("no_article"), rS.getString("nom_article"),rS.getTimestamp("date_fin_enchere").toLocalDateTime(), rS.getString("image"), rS.getInt("montant_enchere"), rS.getInt("no_utilisateur"),user, categorie);
+				Article article = new Article(rS.getInt("no_article"), rS.getInt("prix_initial"),rS.getString("nom_article"), rS.getString("description"),rS.getTimestamp("date_fin_enchere").toLocalDateTime(), rS.getString("image"), rS.getInt("montant_enchere"), rS.getInt("no_utilisateur"),user, categorie);
 					if (montantEnchere != null) {
 						Enchere enchere = new Enchere(rS.getInt("no_utilisateur"),rS.getInt("no_article"),Optional.ofNullable(rS.getTimestamp("date_enchere")).map(dateEnchere -> dateEnchere.toLocalDateTime()).orElse(null), rS.getInt("montant_enchere"));
 						article.setEnchere(enchere);
