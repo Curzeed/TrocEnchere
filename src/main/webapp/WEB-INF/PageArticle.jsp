@@ -30,7 +30,7 @@
 			<p><b>Vendeur : </b> ${detailArticle.user.nom} ${detailArticle.user.prenom}</p>
 	
 	<form action="./DetailArticle" method="post">
-		<label for="mise">Ma proposition : </label>
+		<label for="mise"><b>Ma proposition :</b> </label>
 		<input type="number" name="montant"/>
 		<input name="idArticle" type="hidden" value="${detailArticle.idArticle}">
 		<button type="submit">Enchérir</button>
