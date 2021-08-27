@@ -62,22 +62,15 @@ public class ServletModifierSonProfil extends HttpServlet {
 					e.printStackTrace();
 				}
 			}if (isAlphaNumeric(newUtilisateur.getPseudo()) == false ) {
-
 				request.setAttribute("erreurpseudo", "Caractères spéciaux dans le champ Pseudo");
-
 				request.getRequestDispatcher("/WEB-INF/PageModifierProfil.jsp").forward(request, response);
 			}if (isAlphaNumeric(newUtilisateur.getPrenom()) == false) {
-
 				request.setAttribute("erreurprenom", "Caractères spéciaux dans le champ Prénom");
-
 				request.getRequestDispatcher("/WEB-INF/PageModifierProfil.jsp").forward(request, response);
 			}if (isAlphaNumeric(newUtilisateur.getNom()) == false ) {
-
 				request.setAttribute("erreurnom", "Caractères spéciaux dans le champ Nom");
-
 				request.getRequestDispatcher("/WEB-INF/PageModifierProfil.jsp").forward(request, response);
 			}if (isAlphaNumeric(newUtilisateur.getVille()) == false) {
-
 				request.setAttribute("erreurville", "Caractères spéciaux dans le champ ville");
 				request.getRequestDispatcher("/WEB-INF/PageModifierProfil.jsp").forward(request, response);
 			}if ( utilisateur.getMdp().equals(newMdp) == true) {
@@ -88,8 +81,6 @@ public class ServletModifierSonProfil extends HttpServlet {
 				request.getRequestDispatcher("/WEB-INF/PageModifierProfil.jsp").forward(request, response);
 			}if(mdp.equals(utilisateur.getMdp()) == false) {
 				request.setAttribute("erreurmdpactuel", "Veuillez écrire votre mot de passe actuelle");
-
-				request.setAttribute("erreurville", "Caractères spéciaux dans le champ ville");
 				request.getRequestDispatcher("/WEB-INF/PageModifierProfil.jsp").forward(request, response);
 			}
 	}
