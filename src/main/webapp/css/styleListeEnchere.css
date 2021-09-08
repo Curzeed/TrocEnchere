@@ -99,7 +99,6 @@ div.encheres{
 	justify-content: space-evenly;
 	flex-direction: row;	
 	flex-wrap: wrap;
-	
 }
 div.articles{
 	display: flex;
@@ -147,4 +146,5 @@ img{
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	height : 100px;
 }

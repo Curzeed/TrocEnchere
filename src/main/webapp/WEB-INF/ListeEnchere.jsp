@@ -170,8 +170,15 @@
 					</c:if>
 						<c:if test="${empty sessionScope.utilisateur.pseudo}"></c:if>
 					<div class="prixVente">
-						<img src="${liste.image}" alt="" />${liste.prix_vente}
+						<img src="${liste.image}" alt="" /> <c:if test="${!empty liste.enchere.montant_enchere}" > ${liste.enchere.montant_enchere} </c:if>
+						 <c:if test="${empty liste.enchere.montant_enchere}"> ${liste.prix_vente}</c:if>
 					</div>
+					<script>function resizeImage(id,largeur)
+						    var prop = parseInt(document.getElementById(${pageContext.request.contextPath}/uploads/${liste.image}).style.height)/parseInt(document.getElementById(id).style.width);  
+							var hauteur = largeur*prop;
+						    document.getElementById(${pageContext.request.contextPath}/uploads/${liste.image}).style.height=hauteur+'px';   document.getElementById(id).style.width=largeur+'px';
+
+					</script>
 					<div class="imageArticle">
 						<c:choose>
 						<c:when test="${!empty liste}">
